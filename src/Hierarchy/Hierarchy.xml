@@ -1,0 +1,9 @@
+<Hierarchy>
+	<Enterprise name="Enterprise">
+		<Site name="Site 1"/>
+		<Site name="Site 2">
+			<Area name="Area A"/>
+			<Area name="Area B"/>
+		</Site>
+	</Enterprise>
+</Hierarchy>
