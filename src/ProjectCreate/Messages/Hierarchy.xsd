@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://github.com/JoePlant/ProjectCreate"
+    elementFormDefault="qualified"
+    xmlns="http://github.com/JoePlant/ProjectCreate"
+    xmlns:mstns="http://schemas.microsoft.com/2003/10/Serialization/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:attributeGroup name="equipment-attributes">
+    <xs:attribute name="name" type="xs:string" use ="required"/>
+    <xs:attribute name="id" type="xs:string" use="optional"/>
+  </xs:attributeGroup>
+
+  <xs:element name="Project">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Enterprise" type="Enterprise" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="Enterprise">
+    <xs:sequence>
+      <xs:element name="Site" type="Site" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="equipment-attributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="Site">
+    <xs:sequence>
+      <xs:element name="Area" type="Area" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="equipment-attributes"/>
+  </xs:complexType>
+  
+  <xs:complexType name="Area">
+    <xs:sequence>
+      <xs:element name="WorkCentre" type="WorkCentre" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Area" type="Area" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="equipment-attributes"/>
+  </xs:complexType>  
+  
+  <xs:complexType name="WorkCentre">
+    <xs:sequence>
+    </xs:sequence>
+    <xs:attributeGroup ref="equipment-attributes"/>
+  </xs:complexType>
+
+</xs:schema>
+
