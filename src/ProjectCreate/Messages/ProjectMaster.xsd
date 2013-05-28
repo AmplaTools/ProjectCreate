@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://github.com/AmplaTools/ProjectCreate"
+    elementFormDefault="qualified"
+    xmlns="http://github.com/AmplaTools/ProjectCreate"
+    xmlns:mstns="http://schemas.microsoft.com/2003/10/Serialization/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="ProjectMaster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Hierarchy" type="ProjectHierarchy" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="ProjectHierarchy">
+    <xs:attribute name="href" type="xs:string" use ="required"/>
+  </xs:complexType>
+
+
+</xs:schema>
+

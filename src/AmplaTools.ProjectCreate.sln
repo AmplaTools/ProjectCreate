@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmplaTools.ProjectCreate", "ProjectCreate\AmplaTools.ProjectCreate.csproj", "{061EFA8E-C2C4-420E-B047-BA6B4DC5C536}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmplaTools.ProjectCreate.UnitTests", "UnitTests\AmplaTools.ProjectCreate.UnitTests.csproj", "{FB4EAF30-CE7E-4987-A425-D01F037AD5B9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{061EFA8E-C2C4-420E-B047-BA6B4DC5C536} = {061EFA8E-C2C4-420E-B047-BA6B4DC5C536}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{061EFA8E-C2C4-420E-B047-BA6B4DC5C536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{061EFA8E-C2C4-420E-B047-BA6B4DC5C536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{061EFA8E-C2C4-420E-B047-BA6B4DC5C536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{061EFA8E-C2C4-420E-B047-BA6B4DC5C536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB4EAF30-CE7E-4987-A425-D01F037AD5B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB4EAF30-CE7E-4987-A425-D01F037AD5B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB4EAF30-CE7E-4987-A425-D01F037AD5B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB4EAF30-CE7E-4987-A425-D01F037AD5B9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
