@@ -1,9 +1,8 @@
 ﻿using System;
-using AmplaTools.ProjectCreate.Helper;
 using AmplaTools.ProjectCreate.Messages;
 using NUnit.Framework;
 
-namespace AmplaTools.ProjectCreate
+namespace AmplaTools.ProjectCreate.Helper
 {
     public class SerializationHelperUnitTests : TestFixture
     {
