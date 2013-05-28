@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Messages\HierarchyUnitTests.cs" />
     <Compile Include="Messages\ProjectMasterUnitTests.cs" />
     <Compile Include="Helper\SerializationHelperUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

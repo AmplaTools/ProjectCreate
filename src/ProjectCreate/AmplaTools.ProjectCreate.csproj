@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Messages\Hierarchy.designer.cs" />
+    <Compile Include="Messages\Hierarchy.partial.cs" />
     <Compile Include="Messages\ProjectHierarchy.partial.cs" />
     <Compile Include="Messages\ProjectMaster.designer.cs" />
     <Compile Include="Messages\ProjectMaster.partial.cs" />
