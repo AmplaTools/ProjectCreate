@@ -43,17 +43,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\B2MMLEquipmentCommandUnitTest.cs" />
+    <Compile Include="Commands\Equipment\EquipmentHierarchyCommandUnitTests.cs" />
+    <Compile Include="Helper\ArgumentCheckUnitTests.cs" />
+    <Compile Include="Helper\AssemblyResourcesUnitTests.cs" />
+    <Compile Include="Helper\HierarchyHelper.cs" />
+    <Compile Include="Helper\XmlSchemaValidatorUnitTests.cs" />
+    <Compile Include="Messages\AreaUnitTests.cs" />
+    <Compile Include="Messages\SiteUnitTests.cs" />
+    <Compile Include="Messages\EnterpriseUnitTests.cs" />
     <Compile Include="Messages\HierarchyUnitTests.cs" />
     <Compile Include="Messages\ProjectMasterUnitTests.cs" />
     <Compile Include="Helper\SerializationHelperUnitTests.cs" />
+    <Compile Include="Messages\WorkCentreUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schema\TestProject.designer.cs" />
     <Compile Include="TestFixture.cs" />
+    <Compile Include="Validation\NameIsSpecifiedValidationUnitTests.cs" />
+    <Compile Include="Validation\NameIsUniqueValidationUnitTests.cs" />
+    <Compile Include="Validation\ValidationMessageUnitTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjectCreate\AmplaTools.ProjectCreate.csproj">
       <Project>{061EFA8E-C2C4-420E-B047-BA6B4DC5C536}</Project>
       <Name>AmplaTools.ProjectCreate</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Schema\TestProject.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Schema\TestProject.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

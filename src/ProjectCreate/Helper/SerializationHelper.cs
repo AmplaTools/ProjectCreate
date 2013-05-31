@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml;
 
 namespace AmplaTools.ProjectCreate.Helper
 {
@@ -62,6 +63,7 @@ namespace AmplaTools.ProjectCreate.Helper
             Serializer serializer = GetSerializer<T>();
             return serializer.Serialize(obj);
         }
+
 
         /// <summary>
         ///     Gets a Serializer for the type
@@ -139,6 +141,5 @@ namespace AmplaTools.ProjectCreate.Helper
                 writer.Flush();
             }
         }
-
     }
 }

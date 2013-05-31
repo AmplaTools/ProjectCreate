@@ -1,0 +1,3 @@
+﻿<TestProject xmlns="http://github.com/AmplaTools/ProjectCreate/Test">
+  <Hierarchy href="Test.Hierarchy.xml"/>
+</TestProject>

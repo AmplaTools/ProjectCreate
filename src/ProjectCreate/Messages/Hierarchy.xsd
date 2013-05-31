@@ -18,24 +18,26 @@
     </xs:complexType>
   </xs:element>
 
-  <xs:complexType name="Enterprise">
+  <xs:complexType name="Enterprise" >
     <xs:sequence>
-      <xs:element name="Site" type="Site" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Site" type="Site" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
     <xs:attributeGroup ref="equipment-attributes"/>
   </xs:complexType>
 
+
   <xs:complexType name="Site">
     <xs:sequence>
-      <xs:element name="Area" type="Area" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Area" type="Area" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
     <xs:attributeGroup ref="equipment-attributes"/>
   </xs:complexType>
+
   
   <xs:complexType name="Area">
     <xs:sequence>
-      <xs:element name="WorkCentre" type="WorkCentre" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="Area" type="Area" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="WorkCentre" type="WorkCentre" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="Area" type="Area" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
     <xs:attributeGroup ref="equipment-attributes"/>
   </xs:complexType>  
