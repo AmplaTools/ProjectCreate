@@ -57,6 +57,7 @@
     <Compile Include="Messages\.partial\Hierarchy.partial.cs" />
     <Compile Include="Messages\.partial\ProjectHierarchy.partial.cs" />
     <Compile Include="Messages\IItem.cs" />
+    <Compile Include="Messages\ItemExtender.cs" />
     <Compile Include="Messages\ProjectMaster.designer.cs" />
     <Compile Include="Messages\.partial\ProjectMaster.partial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

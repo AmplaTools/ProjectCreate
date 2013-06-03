@@ -8,10 +8,11 @@ namespace AmplaTools.ProjectCreate.Helper
 {
     public class AssemblyResourcesUnitTest : TestFixture
     {
+        private const string resourceTestProjectxsd = "AmplaTools.ProjectCreate.Schema.TestProject.xsd";
         [Test]
         public void GetResource()
         {
-            string xsd = AssemblyResources.GetTextFile("AmplaTools.ProjectCreate.Schema.TestProject.xsd");
+            string xsd = AssemblyResources.GetTextFile(resourceTestProjectxsd);
             Assert.That(xsd, Is.Not.Empty);
         }
 
@@ -27,7 +28,7 @@ namespace AmplaTools.ProjectCreate.Helper
         {
             string[] schemas = AssemblyResources.GetSchemaNames(Assembly.GetExecutingAssembly());
             Assert.That(schemas.Length, Is.EqualTo(1));
-            Assert.That(schemas[0], Is.EqualTo("AmplaTools.ProjectCreate.Schema.TestProject.xsd"));
+            Assert.That(schemas[0], Is.EqualTo(resourceTestProjectxsd));
         }
 
         [Test]

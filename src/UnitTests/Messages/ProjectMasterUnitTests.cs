@@ -5,6 +5,9 @@ namespace AmplaTools.ProjectCreate.Messages
 {
     public class ProjectMasterUnitTests : TestFixture
     {
+        private const string exampleResourcePath = "AmplaTools.ProjectCreate.Resources.Messages.ProjectMaster.Example.xml";
+
+
         [Test]
         public void DefaultHierarchy()
         {
@@ -17,9 +20,7 @@ namespace AmplaTools.ProjectCreate.Messages
         [Test]
         public void ContainsNamespace()
         {
-            ProjectMaster master = new ProjectMaster();
-            master.Hierarchy = new ProjectHierarchy();
-            master.Hierarchy.href = "Hierarchy.xml";
+            ProjectMaster master = new ProjectMaster {Hierarchy = new ProjectHierarchy {href = "Hierarchy.xml"}};
 
             Assert.That(ProjectMaster.Namespace, Is.StringStarting("http://"));
             Assert.That(ProjectMaster.Namespace, Is.StringContaining("github"));
@@ -41,6 +42,17 @@ namespace AmplaTools.ProjectCreate.Messages
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Hierarchy, Is.Not.Null);
             Assert.That(result.Hierarchy.href, Is.EqualTo(master.Hierarchy.href));
+        }
+
+        [Test]
+        public void RoundTripFromString()
+        {
+            string xml = AssemblyResources.GetTextFile(typeof(ProjectMasterUnitTests).Assembly, exampleResourcePath);
+            ProjectMaster projectMaster = SerializationHelper.DeserializeFromString<ProjectMaster>(xml);
+
+            string roundTrip = SerializationHelper.SerializeToString(projectMaster);
+
+            Assert.That(roundTrip, Is.EqualTo(xml)); 
         }
 
     }

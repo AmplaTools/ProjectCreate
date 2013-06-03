@@ -12,11 +12,4 @@ namespace AmplaTools.ProjectCreate.Messages
         string FullName { get; }
     }
 
-    public static class ItemExtender
-    {
-        public static int GetCount(this IItem item)
-        {
-           return  (item is Hierarchy ? 0 : 1) + item.GetItems().Sum(child => child.GetCount());
-        }
-    }
 }
