@@ -49,7 +49,7 @@
     <Compile Include="Helper\B2MML.cs" />
     <Compile Include="Helper\XmlHelper.cs" />
     <Compile Include="Helper\XmlSchemaValidator.cs" />
-    <Compile Include="ICommand.cs" />
+    <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Messages\.partial\Enterprise.partial.cs" />
     <Compile Include="Messages\.partial\Site.partial.cs" />
     <Compile Include="Messages\.partial\WorkCentre.partial.cs" />
