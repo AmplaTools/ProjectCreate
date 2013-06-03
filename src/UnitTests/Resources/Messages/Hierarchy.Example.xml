@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+<Hierarchy xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://github.com/AmplaTools/ProjectCreate">
+  <Enterprise name="Mining Company">
+    <Site name="Remote Site">
+      <Area name="Mining" />
+      <Area name="Processing">
+        <WorkCentre name="ROM" />
+      </Area>
+    </Site>
+  </Enterprise>
+</Hierarchy>

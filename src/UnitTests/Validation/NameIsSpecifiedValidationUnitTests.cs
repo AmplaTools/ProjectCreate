@@ -5,44 +5,40 @@ using NUnit.Framework;
 namespace AmplaTools.ProjectCreate.Validation
 {
     [TestFixture]
-    public class NameIsSpecifiedValidationUnitTests : TestFixture
+    public class NameIsSpecifiedValidationUnitTests : ValidationTestFixture<NameIsSpecifiedValidation>
     {
+
+        protected override NameIsSpecifiedValidation Create(ValidationMessages validationMessages)
+        {
+            return new NameIsSpecifiedValidation(validationMessages);
+        }
+
          [Test]
          public void ValidateNullItem()
          {
-             ValidationMessages messages = new ValidationMessages();
-             
-             NameIsSpecifiedValidation validation = new NameIsSpecifiedValidation(messages);
-             Assert.Throws<ArgumentNullException>(() => validation.Validate(null));
+             Assert.Throws<ArgumentNullException>(() => Validation.Validate(null));
          }
 
          [Test]
          public void ValidateWithName()
          {
-             ValidationMessages messages = new ValidationMessages();
-
-             NameIsSpecifiedValidation validation = new NameIsSpecifiedValidation(messages);
-
              Enterprise enterprise = new Enterprise();
 
-             Assert.That(validation.Validate(enterprise), Is.True);
-             Assert.That(messages, Is.Empty);
+             Assert.That(Validation.Validate(enterprise), Is.True);
+             Assert.That(Messages, Is.Empty);
          }
 
          [Test]
          public void ValidateWithEmptyName()
          {
-             ValidationMessages messages = new ValidationMessages();
-
-             NameIsSpecifiedValidation validation = new NameIsSpecifiedValidation(messages);
-
              Enterprise enterprise = new Enterprise {name = ""};
 
-             Assert.That(validation.Validate(enterprise), Is.False);
-             Assert.That(messages.Count, Is.EqualTo(1));
-             Assert.That(messages[0].Message, Is.StringContaining("Name"));
+             Assert.That(Validation.Validate(enterprise), Is.False);
+             Assert.That(Messages.Count, Is.EqualTo(1));
+             Assert.That(Messages[0].Message, Is.StringContaining("Name"));
          }
 
 
+ 
     }
 }

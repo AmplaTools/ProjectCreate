@@ -62,6 +62,7 @@
     <Compile Include="Validation\NameIsSpecifiedValidationUnitTests.cs" />
     <Compile Include="Validation\NameIsUniqueValidationUnitTests.cs" />
     <Compile Include="Validation\ValidationMessageUnitTests.cs" />
+    <Compile Include="Validation\ValidationTestFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjectCreate\AmplaTools.ProjectCreate.csproj">
@@ -76,6 +77,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Schema\TestProject.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Messages\Hierarchy.Example.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

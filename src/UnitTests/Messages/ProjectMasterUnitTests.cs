@@ -42,5 +42,6 @@ namespace AmplaTools.ProjectCreate.Messages
             Assert.That(result.Hierarchy, Is.Not.Null);
             Assert.That(result.Hierarchy.href, Is.EqualTo(master.Hierarchy.href));
         }
+
     }
 }
