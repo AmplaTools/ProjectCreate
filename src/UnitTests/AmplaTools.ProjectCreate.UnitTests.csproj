@@ -81,10 +81,14 @@
     <EmbeddedResource Include="Schema\TestProject.xml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Messages\Hierarchy.Example.xml" />
+    <EmbeddedResource Include="Resources\Messages\Hierarchy.Example.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Messages\ProjectMaster.Example.xml" />
+    <EmbeddedResource Include="Resources\Messages\ProjectMaster.Example.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
