@@ -82,7 +82,7 @@
 
   <xsl:template match="pc:WorkCentre">
     <xsl:call-template name="add-equipment">
-      <xsl:with-param name="equipmentLevel">Area</xsl:with-param>
+      <xsl:with-param name="equipmentLevel">Other</xsl:with-param>
     </xsl:call-template>
   </xsl:template>
 
