@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using AmplaTools.ProjectCreate.Messages;
+using AmplaTools.ProjectCreate.Messages.Configuration;
 using AmplaTools.ProjectCreate.Schema;
 using NUnit.Framework;
 

@@ -49,13 +49,14 @@
     <Compile Include="Helper\ArgumentCheckUnitTests.cs" />
     <Compile Include="Helper\AssemblyResourcesUnitTests.cs" />
     <Compile Include="Helper\HierarchyHelper.cs" />
+    <Compile Include="Helper\ProjectMasterHelper.cs" />
     <Compile Include="Helper\XmlSchemaValidatorUnitTests.cs" />
     <Compile Include="Messages\AreaUnitTests.cs" />
     <Compile Include="Messages\ItemExtenderUnitTests.cs" />
     <Compile Include="Messages\SiteUnitTests.cs" />
     <Compile Include="Messages\EnterpriseUnitTests.cs" />
     <Compile Include="Messages\HierarchyUnitTests.cs" />
-    <Compile Include="Messages\ProjectMasterUnitTests.cs" />
+    <Compile Include="Messages\Configuration\ProjectMasterUnitTests.cs" />
     <Compile Include="Helper\SerializationHelperUnitTests.cs" />
     <Compile Include="Messages\WorkCentreUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,7 +1,7 @@
 ﻿using AmplaTools.ProjectCreate.Helper;
 using NUnit.Framework;
 
-namespace AmplaTools.ProjectCreate.Messages
+namespace AmplaTools.ProjectCreate.Messages.Configuration
 {
     public class ProjectMasterUnitTests : TestFixture
     {
@@ -11,16 +11,17 @@ namespace AmplaTools.ProjectCreate.Messages
         [Test]
         public void DefaultHierarchy()
         {
-            ProjectMaster master = new ProjectMaster();
+            ProjectMaster master = ProjectMasterHelper.CreateDefaultProject();
             Assert.That(master, Is.Not.Null);
-            Assert.That(master.Hierarchy, Is.Not.Null);
-            Assert.That(master.Hierarchy.href, Is.Not.Null);
+            Assert.That(master.Equipment, Is.Not.Null);
+            Assert.That(master.Equipment.Hierarchy, Is.Not.Null);
+            Assert.That(master.Equipment.Hierarchy.href, Is.Not.Null);
         }
 
         [Test]
         public void ContainsNamespace()
         {
-            ProjectMaster master = new ProjectMaster {Hierarchy = new ProjectHierarchy {href = "Hierarchy.xml"}};
+            ProjectMaster master = ProjectMasterHelper.CreateDefaultProject();
 
             Assert.That(ProjectMaster.Namespace, Is.StringStarting("http://"));
             Assert.That(ProjectMaster.Namespace, Is.StringContaining("github"));
@@ -32,16 +33,14 @@ namespace AmplaTools.ProjectCreate.Messages
         [Test]
         public void Roundtrip()
         {
-            ProjectMaster master = new ProjectMaster
-                {
-                    Hierarchy = new ProjectHierarchy {href = "Customer.Hierarchy.xml"}
-                };
+            ProjectMaster master = ProjectMasterHelper.CreateDefaultProject();
+            master.Equipment.Hierarchy.href = "Customer.Hierarchy.xml";
 
             string xml = SerializationHelper.SerializeToString(master);
             ProjectMaster result = SerializationHelper.DeserializeFromString<ProjectMaster>(xml);
             Assert.That(result, Is.Not.Null);
-            Assert.That(result.Hierarchy, Is.Not.Null);
-            Assert.That(result.Hierarchy.href, Is.EqualTo(master.Hierarchy.href));
+            Assert.That(result.Equipment, Is.Not.Null);
+            Assert.That(result.Equipment.Hierarchy.href, Is.EqualTo(master.Equipment.Hierarchy.href));
         }
 
         [Test]

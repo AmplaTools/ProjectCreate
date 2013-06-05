@@ -1,4 +1,4 @@
-﻿namespace AmplaTools.ProjectCreate.Messages
+﻿namespace AmplaTools.ProjectCreate.Messages.Configuration
 {
     public partial class ProjectHierarchy
     {
