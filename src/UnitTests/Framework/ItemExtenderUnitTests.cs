@@ -1,8 +1,8 @@
-﻿using System;
+﻿using AmplaTools.ProjectCreate.Messages;
 using NUnit.Framework;
 using System.Collections.Generic;
 
-namespace AmplaTools.ProjectCreate.Messages
+namespace AmplaTools.ProjectCreate.Framework
 {
     [TestFixture]
     public class ItemExtenderUnitTests : TestFixture

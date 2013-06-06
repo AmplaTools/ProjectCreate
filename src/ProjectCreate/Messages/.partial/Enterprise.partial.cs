@@ -1,20 +1,23 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using AmplaTools.ProjectCreate.Framework;
 
 namespace AmplaTools.ProjectCreate.Messages
 {
-    partial class Enterprise : IItem
+    partial class Enterprise : Item
     {
-        public Enterprise()
+        public Enterprise(string name)
         {
-            name = "Enterprise";
-            Site = new List<Site>();
+            this.name = name;
+            Site = new SiteCollection(this);
+        }
+        public Enterprise() : this("Enterprise")
+        {
         }
 
-        public string Name { get { return name; } }
+        public override string Name { get { return name; } }
 
-        public string FullName { get { return Name; } }
-
-        public List<IItem> GetItems()
+        public override List<IItem> GetItems()
         {
             return new List<IItem>(Site);
         }

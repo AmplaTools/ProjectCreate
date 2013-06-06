@@ -1,4 +1,5 @@
 ﻿using System;
+using AmplaTools.ProjectCreate.Framework;
 using NUnit.Framework;
 
 namespace AmplaTools.ProjectCreate.Messages
@@ -14,6 +15,13 @@ namespace AmplaTools.ProjectCreate.Messages
             Assert.That(site.id, Is.Null);
             Assert.That(site.Area, Is.Empty);
         }
-  
+
+        [Test]
+        public void ItemCollection()
+        {
+            Site site = new Site();
+            Assert.That(site.Area, Is.InstanceOf<ItemCollection<Area>>());
+
+        }
     }
 }

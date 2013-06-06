@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
-namespace AmplaTools.ProjectCreate.Messages
+namespace AmplaTools.ProjectCreate.Framework
 {
     public interface IItem
     {
@@ -10,6 +9,9 @@ namespace AmplaTools.ProjectCreate.Messages
         string Name { get; }
 
         string FullName { get; }
+
+        Item GetParent();
+        void SetParent(Item parent);
     }
 
 }

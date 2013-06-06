@@ -1,7 +1,68 @@
-<Hierarchy>
-	<Enterprise name="Enterprise">
-		<Site name="Site 1"/>
-		<Site name="Site 2">
+<Hierarchy xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://github.com/AmplaTools/ProjectCreate">
+  <Enterprise name="Vedanta">
+    <Site name="Smelter">
+      <Area name="Carbon Plant">
+        <Area name="Green Anode Plant">
+          <Area name="Raw Material">
+            <WorkCentre name="CT Pitch Consignment Analysis"/>
+            <WorkCentre name="Composite Pitch Analysis"/>
+            <WorkCentre name="Coke Consignment Analysis"/>
+          </Area>
+          <Area name="In Process">
+            <WorkCentre name="Process Coke Analysis"/>
+            <WorkCentre name="Dip Basin Water Analysis"/>
+            <WorkCentre name="Magnetic Separator Analysis"/>
+            <WorkCentre name="GAP Butt Analysis"/>
+          </Area>
+        </Area>
+        <Area name="Bake Oven">
+          <Area name="Raw Material">
+            <WorkCentre name="HFO Analysis"/>
+            <WorkCentre name="LFO Analysis"/>
+          </Area>
+          <Area name="In Process">
+            <WorkCentre name="Baked Anode Analysis"/>
+            <WorkCentre name="Soot Analysis"/>
+            <WorkCentre name="Bake Oven Enriched Alumina Analysis"/>
+            <WorkCentre name="Bake Oven Packing Coke Analysis"/>
+          </Area>
+        </Area>
+        <Area name="Rodding Shop">
+          <Area name="Raw Material">
+            <WorkCentre name="Pig Iron Consignment Analysis"/>
+            <WorkCentre name="Stub Steel Consignment Analysis"/>
+            <WorkCentre name="Ramming Mass Consignment Analysis"/>
+            <WorkCentre name="Ferro Phosphorous Analysis"/>
+            <WorkCentre name="Ferro Manganese Analysis"/>
+            <WorkCentre name="Ferro Silicon Analysis"/>
+            <WorkCentre name="Thimble Sample Analysis"/>
+            <WorkCentre name="Steel Shot Analysis"/>
+          </Area>
+          <Area name="In Process">
+            <WorkCentre name="Rodding Water Analysis"/>
+            <WorkCentre name="Rodding Butt Analysis"/>
+            <WorkCentre name="Cast Iron Analysis"/>
+            <WorkCentre name="Rodding Bath Analysis"/>
+            <WorkCentre name="Process Stub Steel Analysis"/>
+            <WorkCentre name="Process Ramming Mass Analysis"/>
+            <WorkCentre name="Pig Iron Consignment Analysis"/>
+          </Area>
+        </Area>
+      </Area>
+      <Area name="Potline"></Area>
+      <Area name="Cast House">
+        <Area name="Raw Material">
+          <WorkCentre name="Metallic Silicon Analysis"/>
+        </Area>
+        <Area name="In Process">
+
+        </Area>
+        <Area name="Finished Goods">
+          
+        </Area>
+      </Area>
+    </Site>
+		<Site name="CPP">
 			<Area name="Area A"/>
 			<Area name="Area B"/>
 		</Site>

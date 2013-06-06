@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using AmplaTools.ProjectCreate.Messages;
 using NUnit.Framework;
 
@@ -34,8 +35,9 @@ namespace AmplaTools.ProjectCreate.Validation
             Enterprise enterprise = new Enterprise
                 {
                     name = "Enterprise",
-                    Site = new List<Site> {new Site {name = "Site A"}}
                 };
+
+            enterprise.Site.Add(new Site() {name="Area 1"});
 
             Assert.That(Validation.Validate(enterprise), Is.True);
             Assert.That(Messages, Is.Empty);
@@ -47,13 +49,11 @@ namespace AmplaTools.ProjectCreate.Validation
             Enterprise enterprise = new Enterprise
                 {
                     name = "Enterprise",
-                    Site = new List<Site>
-                        {
-                            new Site {name = "Site A"},
-                            new Site {name = "Site B"},
-                            new Site {name = "Site C"},
-                        }
                 };
+
+            enterprise.Site.Add(new Site("Site A"));
+            enterprise.Site.Add(new Site("Site B"));
+            enterprise.Site.Add(new Site("Site C"));
 
             Assert.That(Validation.Validate(enterprise), Is.True);
             Assert.That(Validation.Validate(enterprise.Site[0]), Is.True);
@@ -68,13 +68,11 @@ namespace AmplaTools.ProjectCreate.Validation
             Enterprise enterprise = new Enterprise
                 {
                     name = "Enterprise",
-                    Site = new List<Site>
-                        {
-                            new Site {name = "Site A"},
-                            new Site {name = "Site B"},
-                            new Site {name = "Site A"},
-                        }
                 };
+
+            enterprise.Site.Add(new Site("Site A"));
+            enterprise.Site.Add(new Site("Site B"));
+            enterprise.Site.Add(new Site("Site A"));
 
             Assert.That(enterprise.GetCount(), Is.EqualTo(4));
 
@@ -94,21 +92,14 @@ namespace AmplaTools.ProjectCreate.Validation
             Enterprise enterprise = new Enterprise
                 {
                     name = "Enterprise",
-                    Site = new List<Site>
-                        {
-                            new Site
-                                {
-                                    name = "Site A",
-                                    Area = new List<Area> {new Area {name = "Area"}}
-                                },
-                            new Site {name = "Site B"},
-                            new Site
-                                {
-                                    name = "Site C",
-                                    Area = new List<Area> {new Area {name = "Area"}}
-                                },
-                        }
                 };
+
+            enterprise.Site.Add(new Site("Site A"));
+            enterprise.Site.Add(new Site("Site B"));
+            enterprise.Site.Add(new Site("Site C"));
+
+            enterprise.Site[0].Area.Add(new Area("Area"));
+            enterprise.Site[2].Area.Add(new Area("Area"));
 
             Assert.That(enterprise.GetCount(), Is.EqualTo(6));
 

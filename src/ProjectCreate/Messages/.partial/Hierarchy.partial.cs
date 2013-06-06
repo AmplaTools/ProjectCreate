@@ -1,19 +1,16 @@
 ﻿using System.Collections.Generic;
+using AmplaTools.ProjectCreate.Framework;
 
 namespace AmplaTools.ProjectCreate.Messages
 {
-    public partial class Hierarchy : IItem
+    public partial class Hierarchy : Item
     {
         public Hierarchy()
         {
             Enterprise = new Enterprise();
         }
 
-        public string Name { get { return ""; }}
-
-        public string FullName { get { return Name; } }
-
-        public List<IItem> GetItems()
+        public override List<IItem> GetItems()
         {
             List<IItem> items = new List<IItem>();
             if (Enterprise != null)
@@ -21,6 +18,11 @@ namespace AmplaTools.ProjectCreate.Messages
                 items.Add(Enterprise);
             }
             return items;
+        }
+
+        public override string Name
+        {
+            get { return null; }
         }
     }
 

@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using AmplaTools.ProjectCreate.Framework;
 
 namespace AmplaTools.ProjectCreate.Messages
 {
-    public partial class WorkCentre : IItem
+    public partial class WorkCentre : Item
     {
 
         public WorkCentre()
@@ -10,14 +11,15 @@ namespace AmplaTools.ProjectCreate.Messages
             name = "WorkCentre";
         }
 
-        public string Name { get { return name; } }
-
-        public string FullName { get { return Name; } }
-
-        public List<IItem> GetItems()
+        public override List<IItem> GetItems()
         {
             List<IItem> items = new List<IItem>();
             return items;
+        }
+
+        public override string Name
+        {
+            get { return name; }
         }
     }
 }
