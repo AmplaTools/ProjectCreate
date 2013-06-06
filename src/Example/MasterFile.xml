@@ -1,3 +1,7 @@
-<Project>
-	<Hierarchy href="Hierarchy.xml"/>
-</Project>
+<?xml version="1.0"?>
+<ProjectMaster xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://github.com/AmplaTools/ProjectCreate">
+  <Equipment>
+    <Hierarchy href="Hierarchy.xml" />
+    <Classes />
+  </Equipment>
+</ProjectMaster>
