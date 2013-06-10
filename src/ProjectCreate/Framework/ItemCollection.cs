@@ -43,9 +43,9 @@ namespace AmplaTools.ProjectCreate.Framework
 
         private void SetParentForNewItems(IEnumerable newItems)
         {
-            foreach (Item item in newItems)
+            foreach (IItem item in newItems)
             {
-                Item previousParent = item.GetParent();
+                IItem previousParent = item.GetParent();
                 if (previousParent != null)
                 {
                     string message = string.Format("New item {0} is already a member of collection: {1}", item.Name,
@@ -58,7 +58,7 @@ namespace AmplaTools.ProjectCreate.Framework
 
         private void ResetParentForOldItems(IEnumerable oldItems)
         {
-            foreach (Item item in oldItems)
+            foreach (IItem item in oldItems)
             {
                 item.SetParent(null);
             }

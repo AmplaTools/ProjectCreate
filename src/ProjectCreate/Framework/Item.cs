@@ -22,12 +22,12 @@ namespace AmplaTools.ProjectCreate.Framework
             }
         }
 
-        public Item GetParent()
+        Item IItem.GetParent()
         {
             return parentItem;
         }
 
-        public void SetParent(Item parent)
+        void IItem.SetParent(Item parent)
         {
             parentItem = parent;
         }
