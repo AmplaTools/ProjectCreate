@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace AmplaTools.ProjectCreate.Excel.UnitTests
 {
     [TestFixture]
-    public class ExcelTestFixture : TestFixture
+    public abstract class ExcelTestFixture : TestFixture
     {
         protected override void OnFixtureSetUp()
         {
