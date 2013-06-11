@@ -37,7 +37,7 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests.Writer
         [Test]
         public void Write2Rows()
         {
-            using (IExcelSpreadsheet spreadsheet = new ExcelSpreadsheet(Filename))
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.CreateNew(Filename))
             {
                 IWorksheetWriter writer = spreadsheet.WriteToWorksheet("UnitTests");
                 writer.WriteRow(new List<string> { "One", "Two", "Three" });

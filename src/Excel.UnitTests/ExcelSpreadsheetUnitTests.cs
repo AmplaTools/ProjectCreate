@@ -12,13 +12,13 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests
         [Test]
         public void NullFilename()
         {
-            Assert.Throws<ArgumentNullException>(() => new ExcelSpreadsheet(null));
+            Assert.Throws<ArgumentNullException>(() => ExcelSpreadsheet.CreateNew(null));
         }
 
         [Test]
         public void EmptyFilename()
         {
-            Assert.Throws<ArgumentException>(() => new ExcelSpreadsheet(""));
+            Assert.Throws<ArgumentException>(() => ExcelSpreadsheet.CreateNew(""));
         }
 
         public void ReadOnlyWorksheet()
@@ -34,6 +34,7 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests
             using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.OpenReadOnly(Filename))
             {
                 Assert.That(spreadsheet.IsReadOnly, Is.True);
+                Assert.Throws<InvalidOperationException>(() => spreadsheet.WriteToWorksheet("Should fail"));
             } 
         }
 

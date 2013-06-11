@@ -64,6 +64,7 @@
     <Compile Include="Reader\WorksheetReader.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Writer\IWorksheetWriter.cs" />
     <Compile Include="Writer\WorksheetWriter.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,9 +72,6 @@
       <Project>{061EFA8E-C2C4-420E-B047-BA6B4DC5C536}</Project>
       <Name>AmplaTools.ProjectCreate</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

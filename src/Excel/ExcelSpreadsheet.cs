@@ -9,6 +9,9 @@ using ClosedXML.Excel;
 namespace AmplaTools.ProjectCreate.Excel
 {
 
+    /// <summary>
+    ///     Excel Spreadsheet class that allows reading from and writing to Excel 
+    /// </summary>
     public class ExcelSpreadsheet : IExcelSpreadsheet
     {
         private XLWorkbook workbook;
@@ -17,7 +20,11 @@ namespace AmplaTools.ProjectCreate.Excel
         private bool disposed = true;
         private bool isReadOnly;
 
-        public ExcelSpreadsheet(string filename)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExcelSpreadsheet"/> class.
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        private ExcelSpreadsheet(string filename)
         {
             ArgumentCheck.IsNotNull(filename);
             ArgumentCheck.IsNotEmpty(filename);
@@ -37,6 +44,9 @@ namespace AmplaTools.ProjectCreate.Excel
             disposed = false;
         }
 
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
         public void Dispose()
         {
             if (workbook == null) return;
@@ -57,6 +67,11 @@ namespace AmplaTools.ProjectCreate.Excel
         }
 
 
+        /// <summary>
+        /// Creates a new Spreadsheet that will be saved as the specified filename
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        /// <returns></returns>
         public static IExcelSpreadsheet CreateNew(string filename)
         {
             FileInfo fileInfo = new FileInfo(filename);
@@ -69,6 +84,11 @@ namespace AmplaTools.ProjectCreate.Excel
             return excel;
         }
 
+        /// <summary>
+        ///     Opens a new Spreadsheet as ReadOnly.
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        /// <returns></returns>
         public static IExcelSpreadsheet OpenReadOnly(string filename)
         {
             ExcelSpreadsheet spreadsheet = new ExcelSpreadsheet(filename) {IsReadOnly = true};
@@ -81,6 +101,12 @@ namespace AmplaTools.ProjectCreate.Excel
             if (disposed) throw new ObjectDisposedException("ExcelSpreadsheet");
         }
 
+        /// <summary>
+        /// Gets a value indicating whether this instance is read only.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if this instance is read only; otherwise, <c>false</c>.
+        /// </value>
         public bool IsReadOnly
         {
             get
@@ -92,14 +118,26 @@ namespace AmplaTools.ProjectCreate.Excel
             private set { isReadOnly = value; }
         }
 
+        /// <summary>
+        /// Gets or creates a new worksheet
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
         public IWorksheet GetWorksheet(string name)
         {
+            CheckDisposed();
             var worksheet = GetOrCreateWorksheet(name);
-            return new ExcelWorksheet(worksheet);
+            return new ExcelWorksheet(worksheet, isReadOnly);
         }
 
+        /// <summary>
+        ///     Opens a new worksheet for reading.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
         public IWorksheetReader ReadWorksheet(string name)
         {
+            CheckDisposed();
             var worksheet = GetOrCreateWorksheet(name);
             return new WorksheetReader(worksheet);
         }
@@ -111,15 +149,30 @@ namespace AmplaTools.ProjectCreate.Excel
         /// <returns></returns>
         public IWorksheetWriter WriteToWorksheet(string name)
         {
-            var worksheet = GetOrCreateWorksheet(name);
+            if (IsReadOnly) throw new InvalidOperationException("Excel Spreadsheet is opened as ReadOnly");
 
+            var worksheet = GetOrCreateWorksheet(name);
             return new WorksheetWriter(worksheet);
         }
 
+        /// <summary>
+        /// Gets an existing or creates a new worksheet.
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
         private IXLWorksheet GetOrCreateWorksheet(string name)
         {
-            IXLWorksheet worksheet = workbook.Worksheets.FirstOrDefault(ws => ws.Name == name) ??
-                                     workbook.AddWorksheet(name);
+            IXLWorksheet worksheet = workbook.Worksheets.FirstOrDefault(ws => ws.Name == name);
+            if (worksheet == null)
+            {
+                if (IsReadOnly)
+                {
+                    string message = string.Format("Worksheet: '{0}' does not exist.", name);
+                    throw new InvalidOperationException(message);
+                }
+                
+                worksheet = workbook.AddWorksheet(name);
+            }
             return worksheet;
         }
     }
