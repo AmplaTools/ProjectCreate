@@ -53,8 +53,17 @@
     <Compile Include="ExcelWorksheet.cs" />
     <Compile Include="IExcelSpreadsheet.cs" />
     <Compile Include="IWorksheet.cs" />
-    <Compile Include="Reader\WorksheetReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reader\CellReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reader\ICellReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reader\IWorksheetReader.cs" />
+    <Compile Include="Reader\WorksheetReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Writer\WorksheetWriter.cs" />
   </ItemGroup>
   <ItemGroup>

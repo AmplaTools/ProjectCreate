@@ -1,30 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using AmplaTools.ProjectCreate.Excel.Reader;
-using AmplaTools.ProjectCreate.Excel.UnitTests.Helper;
 using AmplaTools.ProjectCreate.Excel.Writer;
 using NUnit.Framework;
 
 namespace AmplaTools.ProjectCreate.Excel.UnitTests
 {
     [TestFixture]
-    public class ExcelSpreadsheetUnitTests : TestFixture
+    public class ExcelSpreadsheetUnitTests : ExcelTestFixture
     {
-        private readonly TempDirectory tempDirectory = new TempDirectory(@"Files\ExcelSpreadsheetUnitTests", "UnitTest_{0:00}.xlsx");
-        private string filename;
-
-        protected override void OnFixtureSetUp()
-        {
-            base.OnFixtureSetUp();
-            tempDirectory.DeleteAllFiles();
-        }
-
-        protected override void OnSetUp()
-        {
-            base.OnSetUp();
-            filename = tempDirectory.GetNextTemporaryFile();
-        }
-
         [Test]
         public void NullFilename()
         {
@@ -39,7 +23,7 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests
 
         public void ReadOnlyWorksheet()
         {
-            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.CreateNew(filename))
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.CreateNew(Filename))
             {
                 Assert.That(spreadsheet.IsReadOnly, Is.False);
                 IWorksheetWriter worksheet = spreadsheet.WriteToWorksheet("New sheet");
@@ -47,7 +31,7 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests
                 Assert.That(worksheet, Is.Not.Null);
             }
 
-            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.OpenReadOnly(filename))
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.OpenReadOnly(Filename))
             {
                 Assert.That(spreadsheet.IsReadOnly, Is.True);
             } 
@@ -57,7 +41,7 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests
         public void ReadAndWrite()
         {
             List<string> list = new List<string>() {"One", "Two", "Three"};
-            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.CreateNew(filename))
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.CreateNew(Filename))
             {
                 IWorksheetWriter worksheet = spreadsheet.WriteToWorksheet("New sheet");
                 Assert.That(worksheet, Is.Not.Null);
@@ -66,7 +50,7 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests
 
             List<string> result;
 
-            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.OpenReadOnly(filename))
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.OpenReadOnly(Filename))
             {
                 IWorksheetReader worksheet = spreadsheet.ReadWorksheet("New sheet");
                 Assert.That(worksheet, Is.Not.Null);

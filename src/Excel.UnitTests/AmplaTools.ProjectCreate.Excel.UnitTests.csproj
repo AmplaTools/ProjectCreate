@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExcelTestFixture.cs" />
     <Compile Include="Helper\TempDirectory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ExcelSpreadsheetUnitTests.cs" />

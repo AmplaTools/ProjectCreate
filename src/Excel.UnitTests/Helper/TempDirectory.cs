@@ -9,10 +9,6 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests.Helper
         private readonly string pattern;
         private int count;
 
-        public TempDirectory(string directoryName) : this(directoryName, "File_{0}.tmp")
-        {
-        }
-
         public TempDirectory(string directoryName, string pattern)
         {
             this.directoryName = directoryName;

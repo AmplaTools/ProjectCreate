@@ -1,31 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using AmplaTools.ProjectCreate.Excel.Reader;
-using AmplaTools.ProjectCreate.Excel.UnitTests.Helper;
 using AmplaTools.ProjectCreate.Excel.Writer;
 using NUnit.Framework;
 
 namespace AmplaTools.ProjectCreate.Excel.UnitTests.Writer
 {
     [TestFixture]
-    public class WorksheetWriterUnitTests : TestFixture
+    public class WorksheetWriterUnitTests : ExcelTestFixture
     {
-        private readonly TempDirectory tempDirectory = new TempDirectory(@"Files\WorksheetWriterUnitTests", "UnitTest_{0:00}.xlsx");
-        private string filename;
-
-        protected override void OnFixtureSetUp()
-        {
-            base.OnFixtureSetUp();
-            tempDirectory.DeleteAllFiles();
-        }
-
-        protected override void OnSetUp()
-        {
-            base.OnSetUp();
-            filename = tempDirectory.GetNextTemporaryFile();
-
-        }
-
         [Test]
         public void NullConstructor()
         {
@@ -35,41 +18,41 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests.Writer
         [Test]
         public void WriteRow()
         {
-            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.CreateNew(filename))
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.CreateNew(Filename))
             {
                 IWorksheetWriter writer = spreadsheet.WriteToWorksheet("UnitTests");
-                List<string> list = new List<string>() {"One", "Two", "Three"};
+                List<string> list = new List<string> {"One", "Two", "Three"};
                 writer.WriteRow(list);
             }
 
-            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.OpenReadOnly(filename))
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.OpenReadOnly(Filename))
             {
                 IWorksheetReader reader = spreadsheet.ReadWorksheet("UnitTests");
                 List<string> list = reader.ReadRow();
                 Assert.That(list, Is.Not.Empty);
-                Assert.That(list, Is.EquivalentTo(new List<string>() { "One", "Two", "Three" }));
+                Assert.That(list, Is.EquivalentTo(new List<string> { "One", "Two", "Three" }));
             }
         }
 
         [Test]
         public void Write2Rows()
         {
-            using (IExcelSpreadsheet spreadsheet = new ExcelSpreadsheet(filename))
+            using (IExcelSpreadsheet spreadsheet = new ExcelSpreadsheet(Filename))
             {
                 IWorksheetWriter writer = spreadsheet.WriteToWorksheet("UnitTests");
                 writer.WriteRow(new List<string> { "One", "Two", "Three" });
                 writer.WriteRow(new List<string> { "Four", "Five", "Six" });
             }
 
-            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.OpenReadOnly(filename))
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.OpenReadOnly(Filename))
             {
                 IWorksheetReader reader = spreadsheet.ReadWorksheet("UnitTests");
                 List<string> list = reader.ReadRow();
                 Assert.That(list, Is.Not.Empty);
-                Assert.That(list, Is.EquivalentTo(new List<string>() { "One", "Two", "Three" }));
+                Assert.That(list, Is.EquivalentTo(new List<string> { "One", "Two", "Three" }));
                 list = reader.ReadRow();
                 Assert.That(list, Is.Not.Empty);
-                Assert.That(list, Is.EquivalentTo(new List<string>() { "Four", "Five", "Six" }));
+                Assert.That(list, Is.EquivalentTo(new List<string> { "Four", "Five", "Six" }));
             }
         }
 
