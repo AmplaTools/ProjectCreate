@@ -1,4 +1,5 @@
-﻿using ClosedXML.Excel;
+﻿using AmplaTools.ProjectCreate.Helper;
+using ClosedXML.Excel;
 
 namespace AmplaTools.ProjectCreate.Excel.Reader
 {
@@ -13,6 +14,8 @@ namespace AmplaTools.ProjectCreate.Excel.Reader
         /// <param name="current">The current.</param>
         public CellReader(IXLCell current)
         {
+            ArgumentCheck.IsNotNull(current);
+
             Address = current.Address.ToStringRelative(false);
             Row = current.Address.RowNumber;
             Column = current.Address.ColumnNumber;

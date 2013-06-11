@@ -20,9 +20,14 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests.Writer
         {
             using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.CreateNew(Filename))
             {
-                IWorksheetWriter writer = spreadsheet.WriteToWorksheet("UnitTests");
-                List<string> list = new List<string> {"One", "Two", "Three"};
-                writer.WriteRow(list);
+                using (IWorksheetWriter writer = spreadsheet.WriteToWorksheet("UnitTests"))
+                {
+                    Assert.That(writer.GetCurrentCell().Address, Is.EqualTo("A1"));
+                    List<string> list = new List<string> {"One", "Two", "Three"};
+
+                    writer.WriteRow(list);
+                    Assert.That(writer.GetCurrentCell().Address, Is.EqualTo("A2"));
+                }
             }
 
             using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.OpenReadOnly(Filename))
@@ -39,9 +44,14 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests.Writer
         {
             using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.CreateNew(Filename))
             {
-                IWorksheetWriter writer = spreadsheet.WriteToWorksheet("UnitTests");
-                writer.WriteRow(new List<string> { "One", "Two", "Three" });
-                writer.WriteRow(new List<string> { "Four", "Five", "Six" });
+                using (IWorksheetWriter writer = spreadsheet.WriteToWorksheet("UnitTests"))
+                {
+                    Assert.That(writer.GetCurrentCell().Address, Is.EqualTo("A1"));
+                    writer.WriteRow(new List<string> {"One", "Two", "Three"});
+                    Assert.That(writer.GetCurrentCell().Address, Is.EqualTo("A2"));
+                    writer.WriteRow(new List<string> {"Four", "Five", "Six"});
+                    Assert.That(writer.GetCurrentCell().Address, Is.EqualTo("A3"));
+                }
             }
 
             using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.OpenReadOnly(Filename))
@@ -53,6 +63,60 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests.Writer
                 list = reader.ReadRow();
                 Assert.That(list, Is.Not.Empty);
                 Assert.That(list, Is.EquivalentTo(new List<string> { "Four", "Five", "Six" }));
+            }
+        }
+
+        /// <summary>
+        ///  Row 1 is blank
+        ///  Row 2 = blank, "One", "Two", "Three"
+        ///  Row 3 = blank, "Four", "Five", "Six"
+        /// </summary>
+        [Test]
+        public void MoveToAndWrite()
+        {
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.CreateNew(Filename))
+            {
+                using (IWorksheetWriter writer = spreadsheet.WriteToWorksheet("UnitTests"))
+                {
+                    Assert.That(writer.GetCurrentCell().Address, Is.EqualTo("A1"));
+                    writer.MoveTo("B2");
+                    writer.WriteRow(new List<string> { "One", "Two", "Three" });
+                    Assert.That(writer.GetCurrentCell().Address, Is.EqualTo("B3"));
+                    writer.WriteRow(new List<string> { "Four", "Five", "Six" });
+                    Assert.That(writer.GetCurrentCell().Address, Is.EqualTo("B4"));
+                }
+            }
+
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.OpenReadOnly(Filename))
+            {
+                using (IWorksheetReader reader = spreadsheet.ReadWorksheet("UnitTests"))
+                {
+                    Assert.That(reader.GetCurrentCell().Address, Is.EqualTo("A1"));
+                    Assert.That(reader.ReadRow(), Is.EquivalentTo(new List<string>()));
+
+                    reader.MoveTo("B2");
+                    Assert.That(reader.GetCurrentCell().Address, Is.EqualTo("B2"));
+                    Assert.That(reader.ReadRow(), Is.EquivalentTo(new List<string> {"One", "Two", "Three"}));
+                    Assert.That(reader.GetCurrentCell().Address, Is.EqualTo("B3"));
+                    Assert.That(reader.ReadRow(), Is.EquivalentTo(new List<string> { "Four", "Five", "Six" }));
+                }
+            }
+        }
+
+        [Test]
+        public void GetCurrentCell()
+        {
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.CreateNew(Filename))
+            {
+                using (IWorksheetWriter writer = spreadsheet.WriteToWorksheet("UnitTests"))
+                {
+                    Assert.That(writer.GetCurrentCell().Address, Is.EqualTo("A1"));
+                    writer.MoveTo("B2");
+                    Assert.That(writer.GetCurrentCell().Address, Is.EqualTo("B2"));
+
+                    writer.MoveTo(10,20);
+                    Assert.That(writer.GetCurrentCell().Address, Is.EqualTo("T10"));
+                }
             }
         }
 

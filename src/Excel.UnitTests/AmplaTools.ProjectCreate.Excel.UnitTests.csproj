@@ -49,6 +49,7 @@
     <Compile Include="Helper\TempDirectory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ExcelSpreadsheetUnitTests.cs" />
+    <Compile Include="Reader\CellReaderUnitTests.cs" />
     <Compile Include="Reader\WorksheetReaderUnitTests.cs" />
     <Compile Include="Writer\WorksheetWriterUnitTests.cs" />
   </ItemGroup>

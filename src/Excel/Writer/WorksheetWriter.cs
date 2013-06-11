@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using AmplaTools.ProjectCreate.Excel.Reader;
 using AmplaTools.ProjectCreate.Helper;
 using ClosedXML.Excel;
 
@@ -11,8 +11,7 @@ namespace AmplaTools.ProjectCreate.Excel.Writer
     /// </summary>
     public class WorksheetWriter : IWorksheetWriter
     {
-        private IXLWorksheet xlWorksheet;
-        private IXLCell current;
+         private IXLCell current;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WorksheetWriter"/> class.
@@ -21,8 +20,35 @@ namespace AmplaTools.ProjectCreate.Excel.Writer
         public WorksheetWriter(IXLWorksheet xlWorksheet)
         {
             ArgumentCheck.IsNotNull(xlWorksheet);
-            this.xlWorksheet = xlWorksheet;
-            current = xlWorksheet.FirstRow().FirstCell();
+            current = xlWorksheet.Cell(1,1);
+        }
+
+        /// <summary>
+        /// Gets the current cell
+        /// </summary>
+        /// <returns></returns>
+        public ICellReader GetCurrentCell()
+        {
+            return new CellReader(current);
+        }
+
+        /// <summary>
+        /// Moves to the specified cell using the address
+        /// </summary>
+        /// <param name="address"></param>
+        public void MoveTo(string address)
+        {
+            current = current.Worksheet.Cell(address);
+        }
+
+        /// <summary>
+        /// Moves to the specified row and column
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="column"></param>
+        public void MoveTo(int row, int column)
+        {
+            current = current.Worksheet.Cell(row, column);
         }
 
         /// <summary>
@@ -45,11 +71,6 @@ namespace AmplaTools.ProjectCreate.Excel.Writer
         /// </summary>
         public void Dispose()
         {
-            if (xlWorksheet != null)
-            {
-                xlWorksheet.Dispose();
-                xlWorksheet = null;
-            }
             current = null;
         }
     }
