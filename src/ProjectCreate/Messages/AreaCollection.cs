@@ -7,21 +7,19 @@ namespace AmplaTools.ProjectCreate.Messages
         public AreaCollection(Item parent) : base(parent)
         {
         }
-    }
 
-    public class SiteCollection : ItemCollection<Site>
-    {
-        public SiteCollection(Item parent)
-            : base(parent)
+        /// <summary>
+        ///     Adds a new Area with the specified name
+        /// </summary>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
+        public Area AddArea(string name)
         {
+            Area area = new Area(name);
+            Add(area);
+            return area;
         }
     }
 
-    public class WorkCentreCollection : ItemCollection<WorkCentre>
-    {
-        public WorkCentreCollection(Item parent)
-            : base(parent)
-        {
-        }
-    }
+
 }

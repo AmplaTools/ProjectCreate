@@ -52,8 +52,11 @@
     <Compile Include="Helper\HierarchyHelper.cs" />
     <Compile Include="Helper\ProjectMasterHelper.cs" />
     <Compile Include="Helper\XmlSchemaValidatorUnitTests.cs" />
+    <Compile Include="Messages\AreaCollectionUnitTests.cs" />
     <Compile Include="Messages\AreaUnitTests.cs" />
     <Compile Include="Framework\ItemExtenderUnitTests.cs" />
+    <Compile Include="Messages\WorkCentreCollectionUnitTests.cs" />
+    <Compile Include="Messages\SiteCollectionUnitTests.cs" />
     <Compile Include="Messages\SiteUnitTests.cs" />
     <Compile Include="Messages\EnterpriseUnitTests.cs" />
     <Compile Include="Messages\HierarchyUnitTests.cs" />

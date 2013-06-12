@@ -6,9 +6,13 @@ namespace AmplaTools.ProjectCreate.Messages
     public partial class WorkCentre : Item
     {
 
-        public WorkCentre()
+        public WorkCentre() : this("WorkCentre 1")
         {
-            name = "WorkCentre";
+        }
+
+        public WorkCentre(string name)
+        {
+            this.name = name;
         }
 
         public override List<IItem> GetItems()

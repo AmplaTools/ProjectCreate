@@ -1,5 +1,4 @@
-﻿using System;
-using AmplaTools.ProjectCreate.Framework;
+﻿
 using NUnit.Framework;
 
 namespace AmplaTools.ProjectCreate.Messages
@@ -20,9 +19,19 @@ namespace AmplaTools.ProjectCreate.Messages
         public void ItemCollection()
         {
             Enterprise enterprise = new Enterprise();
-            Assert.That(enterprise.Site, Is.InstanceOf<ItemCollection<Site>>());
+            Assert.That(enterprise.Site, Is.InstanceOf<SiteCollection>());
             
         }
+
+        [Test]
+        public void ConstructorWithName()
+        {
+            Enterprise enterprise = new Enterprise("My Enterprise");
+            Assert.That(enterprise.Name, Is.EqualTo("My Enterprise"));
+            Assert.That(enterprise.id, Is.Null);
+            Assert.That(enterprise.Site, Is.InstanceOf<SiteCollection>());
+        }
+
   
     }
 }

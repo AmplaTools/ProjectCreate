@@ -63,6 +63,8 @@
     <Compile Include="Messages\Configuration\ProjectMaster.designer.cs" />
     <Compile Include="Messages\Configuration\.partial\ProjectMaster.partial.cs" />
     <Compile Include="Framework\ItemCollection.cs" />
+    <Compile Include="Messages\SiteCollection.cs" />
+    <Compile Include="Messages\WorkCentreCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helper\SerializationHelper.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
