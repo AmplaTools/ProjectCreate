@@ -50,7 +50,7 @@
     <Compile Include="Commands\Excel\ExcelWriterCommand.cs" />
     <Compile Include="Commands\Excel\HierarchyWriterCommand.cs" />
     <Compile Include="ExcelSpreadsheet.cs" />
-    <Compile Include="ExcelWorksheet.cs" />
+    <Compile Include="Reader\ExcelWorksheet.cs" />
     <Compile Include="IExcelSpreadsheet.cs" />
     <Compile Include="IWorksheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

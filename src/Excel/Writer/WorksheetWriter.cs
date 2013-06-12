@@ -67,6 +67,16 @@ namespace AmplaTools.ProjectCreate.Excel.Writer
         }
 
         /// <summary>
+        /// Writes the specified value to the current cell and moves to the next column
+        /// </summary>
+        /// <param name="value">The value.</param>
+        public void Write(string value)
+        {
+            current.Value = value;
+            current = current.CellRight();
+        }
+
+        /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
         public void Dispose()

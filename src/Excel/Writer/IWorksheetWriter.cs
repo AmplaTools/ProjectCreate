@@ -5,7 +5,7 @@ using AmplaTools.ProjectCreate.Excel.Reader;
 namespace AmplaTools.ProjectCreate.Excel.Writer
 {
     /// <summary>
-    ///     Allows the writing to an Excel Worksheet
+    /// Allows the writing to an Excel Worksheet
     /// </summary>
     public interface IWorksheetWriter : IDisposable
     {
@@ -34,6 +34,12 @@ namespace AmplaTools.ProjectCreate.Excel.Writer
         /// </summary>
         /// <param name="row"></param>
         void WriteRow(List<string> row);
+
+        /// <summary>
+        /// Writes the specified value to the current cell and moves to the next column
+        /// </summary>
+        /// <param name="value">The value.</param>
+        void Write(string value);
     }
 
 }

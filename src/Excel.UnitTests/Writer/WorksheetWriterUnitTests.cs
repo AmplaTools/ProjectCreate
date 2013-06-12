@@ -120,5 +120,34 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests.Writer
             }
         }
 
+        [Test]
+        public void Write()
+        {
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.CreateNew(Filename))
+            {
+                using (IWorksheetWriter writer = spreadsheet.WriteToWorksheet("UnitTests"))
+                {
+                    Assert.That(writer.GetCurrentCell().Address, Is.EqualTo("A1"));
+                    writer.Write("One");
+                    Assert.That(writer.GetCurrentCell().Address, Is.EqualTo("B1"));
+
+                    writer.MoveTo("D3");
+                    writer.Write("New value at D3");
+                    Assert.That(writer.GetCurrentCell().Address, Is.EqualTo("E3"));
+                }
+            }
+
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.OpenReadOnly(Filename))
+            {
+                IWorksheetReader reader = spreadsheet.ReadWorksheet("UnitTests");
+                reader.MoveTo("A1");
+                Assert.That(reader.Read(), Is.EqualTo("One"));
+                Assert.That(reader.GetCurrentCell().Address, Is.EqualTo("B1"));
+                reader.MoveTo("D3");
+                Assert.That(reader.Read(), Is.EqualTo("New value at D3"));
+                Assert.That(reader.GetCurrentCell().Address, Is.EqualTo("E3"));
+            }
+        }
+
     }
 }
