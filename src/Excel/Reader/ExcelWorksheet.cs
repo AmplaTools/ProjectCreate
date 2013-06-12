@@ -1,9 +1,8 @@
 ﻿using System;
-using AmplaTools.ProjectCreate.Excel.Reader;
 using AmplaTools.ProjectCreate.Excel.Writer;
 using ClosedXML.Excel;
 
-namespace AmplaTools.ProjectCreate.Excel
+namespace AmplaTools.ProjectCreate.Excel.Reader
 {
     /// <summary>
     /// 
@@ -11,7 +10,7 @@ namespace AmplaTools.ProjectCreate.Excel
     public class ExcelWorksheet : IWorksheet
     {
         private IXLWorksheet worksheet;
-        private bool readOnly;
+        private readonly bool readOnly;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExcelWorksheet"/> class.
