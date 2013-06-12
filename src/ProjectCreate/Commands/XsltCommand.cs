@@ -29,5 +29,19 @@ namespace AmplaTools.ProjectCreate.Commands
         
         protected abstract XmlDocument GetSourceDocument();
 
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
+            OnDispose();
+        }
+
+        /// <summary>
+        ///  Dispose of any resources
+        /// </summary>
+        protected virtual void OnDispose()
+        {
+        }
     }
 }
