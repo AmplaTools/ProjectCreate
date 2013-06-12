@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using AmplaTools.ProjectCreate.Excel.Commands.Excel;
+using AmplaTools.ProjectCreate.Excel.Commands;
 using AmplaTools.ProjectCreate.Excel.Reader;
 using AmplaTools.ProjectCreate.Messages;
 using NUnit.Framework;
 
-namespace AmplaTools.ProjectCreate.Excel.UnitTests.Commands.Excel
+namespace AmplaTools.ProjectCreate.Excel.UnitTests.Commands
 {
     [TestFixture]
     public class HierarchyWriterCommandUnitTests : ExcelTestFixture

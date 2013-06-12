@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using AmplaTools.ProjectCreate.Excel.Writer;
 using AmplaTools.ProjectCreate.Framework;
 using AmplaTools.ProjectCreate.Messages;
 
-namespace AmplaTools.ProjectCreate.Excel.Commands.Excel
+namespace AmplaTools.ProjectCreate.Excel.Commands
 {
     public class HierarchyWriterCommand : ExcelWriterCommand
     {
-        private Hierarchy hierarchy;
+        private readonly Hierarchy hierarchy;
 
         public HierarchyWriterCommand(Hierarchy hierarchy, IExcelSpreadsheet spreadsheet)
             : base(spreadsheet, "Hierarchy")
@@ -30,10 +29,7 @@ namespace AmplaTools.ProjectCreate.Excel.Commands.Excel
 
         private void WriteItems(IItem item, int depth)
         {
-            List<string> row = new List<string>();
-            row.Add(Convert.ToString(depth));
-            row.Add(item.GetType().Name);
-            row.Add(string.Empty);
+            List<string> row = new List<string> {Convert.ToString(depth), item.GetType().Name, string.Empty};
             for (int i = 1; i < depth; i++)
             {
                 row.Add(string.Empty);

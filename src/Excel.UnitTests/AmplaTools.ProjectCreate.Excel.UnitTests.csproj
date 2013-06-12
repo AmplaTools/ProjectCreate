@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\Excel\HierarchyWriterCommandUnitTests.cs" />
+    <Compile Include="Commands\HierarchyWriterCommandUnitTests.cs" />
     <Compile Include="ExcelTestFixture.cs" />
     <Compile Include="Helper\TempDirectory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,10 +1,10 @@
 ﻿using AmplaTools.ProjectCreate.Commands;
 using AmplaTools.ProjectCreate.Excel.Writer;
 
-namespace AmplaTools.ProjectCreate.Excel.Commands.Excel
+namespace AmplaTools.ProjectCreate.Excel.Commands
 {
     /// <summary>
-    ///     Excel Writer Command base class
+    /// Excel Writer Command base class
     /// </summary>
     public abstract class ExcelWriterCommand : ICommand
     {
@@ -31,12 +31,14 @@ namespace AmplaTools.ProjectCreate.Excel.Commands.Excel
             get { return worksheetWriter; }
         }
 
+        /// <summary>
+        ///     Excutes the Command
+        /// </summary>
         public abstract void Execute();
 
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        /// <exception cref="System.NotImplementedException"></exception>
         public void Dispose()
         {
             if (worksheetWriter == null) return;

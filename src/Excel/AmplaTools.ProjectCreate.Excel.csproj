@@ -47,8 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\Excel\ExcelWriterCommand.cs" />
-    <Compile Include="Commands\Excel\HierarchyWriterCommand.cs" />
+    <Compile Include="Commands\ExcelReaderCommand.cs" />
+    <Compile Include="Commands\ExcelWriterCommand.cs" />
+    <Compile Include="Commands\HierarchyReaderCommand.cs" />
+    <Compile Include="Commands\HierarchyWriterCommand.cs" />
     <Compile Include="ExcelSpreadsheet.cs" />
     <Compile Include="Reader\ExcelWorksheet.cs" />
     <Compile Include="IExcelSpreadsheet.cs" />
