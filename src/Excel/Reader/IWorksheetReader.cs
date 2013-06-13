@@ -31,6 +31,13 @@ namespace AmplaTools.ProjectCreate.Excel.Reader
         string Read();
 
         /// <summary>
+        /// Reads the current cell as the specified type and moves to the right
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        T ReadValue<T>();
+
+        /// <summary>
         ///     Reads a row of values from the current position and move down a row
         /// </summary>
         /// <returns></returns>

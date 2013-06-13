@@ -12,6 +12,8 @@ namespace AmplaTools.ProjectCreate.Framework
 
         Item GetParent();
         void SetParent(Item parent);
+
+        void AddItem(Item item);
     }
 
 }

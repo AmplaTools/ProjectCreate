@@ -1,4 +1,5 @@
 ﻿
+using System;
 using AmplaTools.ProjectCreate.Helper;
 using NUnit.Framework;
 
@@ -12,25 +13,23 @@ namespace AmplaTools.ProjectCreate.Messages
         public void Default()
         {
             Hierarchy hierarchy = new Hierarchy();
-            Assert.That(hierarchy.Enterprise, Is.Not.Null);
-            Assert.That(hierarchy.Enterprise.name, Is.EqualTo("Enterprise"));
-
-            Assert.That(hierarchy.GetCount(), Is.EqualTo(1));
+            Assert.That(hierarchy.Enterprise, Is.Null);
+           
+            Assert.That(hierarchy.GetCount(), Is.EqualTo(0));
         }
         
         [Test]
         public void Count()
         {
             Hierarchy hierarchy = new Hierarchy();
-            Assert.That(hierarchy.GetCount(), Is.EqualTo(1));
-            hierarchy.Enterprise = null;
             Assert.That(hierarchy.GetCount(), Is.EqualTo(0));
+            hierarchy.Enterprise = new Enterprise();
+            Assert.That(hierarchy.GetCount(), Is.EqualTo(1));
 
             hierarchy.Enterprise = new Enterprise {Site = {new Site {name = "Site A", id = "enterprise.site a"}}};
             Assert.That(hierarchy.GetCount(), Is.EqualTo(2));
         }
-
-
+        
         [Test]
         public void CountMultiple()
         {
@@ -78,6 +77,79 @@ namespace AmplaTools.ProjectCreate.Messages
             Assert.That(roundTrip, Is.EqualTo(xml));
         }
 
+        [Test]
+        public void Empty()
+        {
+            Hierarchy hierarchy = Hierarchy.Empty();
+            Assert.That(hierarchy, Is.Not.Null);
+            Assert.That(hierarchy.Enterprise, Is.Null);
+            Assert.That(hierarchy.GetCount(), Is.EqualTo(0));
+        }
 
+        [Test]
+        public void EmptyRoundTrip()
+        {
+            Hierarchy hierarchy = Hierarchy.Empty();
+
+            string xml = SerializationHelper.SerializeToString(hierarchy);
+            Hierarchy result = SerializationHelper.DeserializeFromString<Hierarchy>(xml);
+
+            Assert.That(result, Is.Not.Null);
+            Assert.That(result.Enterprise, Is.Null);
+            Assert.That(result.GetCount(), Is.EqualTo(0));
+        }
+
+        [Test]
+        public void AddItemEnterprise()
+        {
+            Hierarchy hierarchy = Hierarchy.Empty();
+            hierarchy.AddItem(new Enterprise("My Enterprise"));
+
+            Assert.That(hierarchy.Enterprise, Is.Not.Null);
+            Assert.That(hierarchy.Enterprise.Name, Is.EqualTo("My Enterprise"));
+
+            Assert.Throws<InvalidOperationException>(() => hierarchy.AddItem(new Enterprise("Another Enterprise")));
+        }
+
+        [Test]
+        public void AddItemNull()
+        {
+            Hierarchy hierarchy = Hierarchy.Empty();
+            Assert.Throws<ArgumentNullException>(() => hierarchy.AddItem(null));
+        }
+
+        [Test]
+        public void AddItemSite()
+        {
+            Hierarchy hierarchy = Hierarchy.Empty();
+            Assert.Throws<ArgumentException>(() => hierarchy.AddItem(new Site("Site 1")));
+        }
+
+        [Test]
+        public void AddItemArea()
+        {
+            Hierarchy hierarchy = Hierarchy.Empty();
+            Assert.Throws<ArgumentException>(() => hierarchy.AddItem(new Area("Area 1")));
+        }
+
+        [Test]
+        public void AddItemWorkCentre()
+        {
+            Hierarchy hierarchy = Hierarchy.Empty();
+            Assert.Throws<ArgumentException>(() => hierarchy.AddItem(new WorkCentre("Work Centre")));
+        }
+
+        [Test]
+        public void TestToString()
+        {
+            Hierarchy hierarchy = Hierarchy.Empty();
+            Assert.That(hierarchy.ToString(), Is.EqualTo("Hierarchy (0 items)"));
+
+            hierarchy.Enterprise = new Enterprise();
+            Assert.That(hierarchy.ToString(), Is.EqualTo("Hierarchy (1 item)"));
+
+            hierarchy.Enterprise.Site.AddSite("Site 1");
+            Assert.That(hierarchy.ToString(), Is.EqualTo("Hierarchy (2 items)"));
+        }
     }
 }

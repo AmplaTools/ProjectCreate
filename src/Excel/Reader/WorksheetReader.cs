@@ -80,6 +80,18 @@ namespace AmplaTools.ProjectCreate.Excel.Reader
         }
 
         /// <summary>
+        /// Reads the current cell as the specified type and moves to the right
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public T ReadValue<T>()
+        {
+            T value = current.GetValue<T>();
+            current = current.CellRight();
+            return value;
+        }
+
+        /// <summary>
         /// Gets the current cell
         /// </summary>
         /// <returns></returns>
