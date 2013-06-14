@@ -149,6 +149,50 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests.Reader
         }
 
         [Test]
+        public void IsEndOfData()
+        {
+            WriteTestValues();
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.OpenReadOnly(Filename))
+            {
+                using (IWorksheetReader reader = spreadsheet.ReadWorksheet("UnitTests"))
+                {
+                    string[] falseAddresses = new[] { "A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3", "D1", "D2" };
+                    string[] trueAddresses = new [] { "A4", "A5", "B4", "B5",  "C4","C5", "D3", "D4","D5" };
+                    foreach (string address in falseAddresses)
+                    {
+                        reader.MoveTo(address);
+                        Assert.That(reader.IsEndOfData(), Is.False, "EndOfData = false for {0}", address);
+                    }
+
+                    foreach (string address in trueAddresses)
+                    {
+                        reader.MoveTo(address);
+                        Assert.That(reader.IsEndOfData(), Is.True, "EndOfData = true for {0}", address);
+                    }
+                }
+            }
+        }
+
+        [Test]
+        public void IsEndOfDataEmpty()
+        {
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.CreateNew(Filename))
+            {
+                using (spreadsheet.WriteToWorksheet("UnitTests"))
+                {
+                }
+            }
+            using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.OpenReadOnly(Filename))
+            {
+                using (IWorksheetReader reader = spreadsheet.ReadWorksheet("UnitTests"))
+                {
+                    Assert.That(reader.IsEndOfData(), Is.True);
+                }
+            }
+        }
+
+
+        [Test]
         public void GetCurrentCellAfterMoveRowColumn()
         {
             WriteTestValues();

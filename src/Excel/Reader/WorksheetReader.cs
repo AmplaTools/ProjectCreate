@@ -49,6 +49,33 @@ namespace AmplaTools.ProjectCreate.Excel.Reader
         }
 
         /// <summary>
+        /// Is the current cell past the end of the data
+        /// </summary>
+        /// <returns></returns>
+        public bool IsEndOfData()
+        {
+            IXLCell lastCell = current.Worksheet.LastCellUsed();
+            if (lastCell == null)
+            {
+                return true;
+            }
+
+            int lastRow = lastCell.Address.RowNumber;
+            int currentRow = current.Address.RowNumber;
+
+            if (lastRow < currentRow)
+            {
+                return true;
+            }
+            
+            if(lastRow == currentRow)
+            {
+                return current.Address.ColumnNumber > lastCell.Address.ColumnNumber;
+            }
+            return false;
+        }
+
+        /// <summary>
         /// Moves to the specified cell using the address
         /// </summary>
         /// <param name="address"></param>

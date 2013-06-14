@@ -51,6 +51,7 @@
     <Compile Include="Commands\ExcelWriterCommand.cs" />
     <Compile Include="Commands\HierarchyReaderCommand.cs" />
     <Compile Include="Commands\HierarchyWriterCommand.cs" />
+    <Compile Include="Commands\SimpleHierarchyReaderCommand.cs" />
     <Compile Include="ExcelSpreadsheet.cs" />
     <Compile Include="Reader\ExcelWorksheet.cs" />
     <Compile Include="IExcelSpreadsheet.cs" />

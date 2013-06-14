@@ -42,5 +42,11 @@ namespace AmplaTools.ProjectCreate.Excel.Reader
         /// </summary>
         /// <returns></returns>
         List<string> ReadRow();
+
+        /// <summary>
+        ///     Is the current cell past the end of the data
+        /// </summary>
+        /// <returns></returns>
+        bool IsEndOfData();
     }
 }

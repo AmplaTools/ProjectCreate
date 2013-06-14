@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\SimpleHierarchyReaderCommandUnitTests.cs" />
     <Compile Include="Commands\HierarchyReaderCommandUnitTests.cs" />
     <Compile Include="Commands\HierarchyWriterCommandUnitTests.cs" />
     <Compile Include="ExcelTestFixture.cs" />

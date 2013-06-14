@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using AmplaTools.ProjectCreate.Excel.Reader;
 using AmplaTools.ProjectCreate.Framework;
 using AmplaTools.ProjectCreate.Messages;
