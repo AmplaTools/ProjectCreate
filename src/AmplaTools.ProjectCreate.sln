@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmplaTools.ProjectCreate.Ex
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmplaTools.ProjectCreate.Excel.UnitTests", "Excel.UnitTests\AmplaTools.ProjectCreate.Excel.UnitTests.csproj", "{86AE7C17-2085-42D9-A684-EAFCCDD194C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmplaTools.ProjectCreate.Editor", "Editor\AmplaTools.ProjectCreate.Editor.csproj", "{9C48A119-D8CF-4959-9A79-DC52A3B6FBAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,16 @@ Global
 		{86AE7C17-2085-42D9-A684-EAFCCDD194C7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{86AE7C17-2085-42D9-A684-EAFCCDD194C7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{86AE7C17-2085-42D9-A684-EAFCCDD194C7}.Release|x86.ActiveCfg = Release|Any CPU
+		{9C48A119-D8CF-4959-9A79-DC52A3B6FBAA}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{9C48A119-D8CF-4959-9A79-DC52A3B6FBAA}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{9C48A119-D8CF-4959-9A79-DC52A3B6FBAA}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{9C48A119-D8CF-4959-9A79-DC52A3B6FBAA}.Debug|x86.ActiveCfg = Debug|x86
+		{9C48A119-D8CF-4959-9A79-DC52A3B6FBAA}.Debug|x86.Build.0 = Debug|x86
+		{9C48A119-D8CF-4959-9A79-DC52A3B6FBAA}.Release|Any CPU.ActiveCfg = Release|x86
+		{9C48A119-D8CF-4959-9A79-DC52A3B6FBAA}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{9C48A119-D8CF-4959-9A79-DC52A3B6FBAA}.Release|Mixed Platforms.Build.0 = Release|x86
+		{9C48A119-D8CF-4959-9A79-DC52A3B6FBAA}.Release|x86.ActiveCfg = Release|x86
+		{9C48A119-D8CF-4959-9A79-DC52A3B6FBAA}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
