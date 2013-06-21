@@ -43,5 +43,34 @@ namespace AmplaTools.ProjectCreate.Helper
             Assert.DoesNotThrow(() => ArgumentCheck.IsNotEmpty(null, "param"));
             Assert.DoesNotThrow(() => ArgumentCheck.IsNotEmpty("this is a test", "param"));
         }
+
+        [Test]
+        public void IsTypeOfNull()
+        {
+            Assert.Throws<ArgumentNullException>(() => ArgumentCheck.IsTypeOf<TestFixture>(null));
+        }
+
+        [Test]
+        public void IsTypeOfBaseClass()
+        {
+            Assert.DoesNotThrow(() => ArgumentCheck.IsTypeOf<TestFixture>(typeof(ArgumentCheckUnitTests)));
+        }
+
+        [Test]
+        public void IsTypeOfChildType()
+        {
+            Exception ex = Assert.Throws<ArgumentException>(() => ArgumentCheck.IsTypeOf<ArgumentCheckUnitTests>(typeof(TestFixture)));
+            Assert.That(ex.Message, Is.StringContaining(typeof(ArgumentCheckUnitTests).FullName));
+            Assert.That(ex.Message, Is.StringContaining(typeof(TestFixture).FullName));
+        }
+
+
+        [Test]
+        public void IsTypeOfWrongType()
+        {
+            Exception ex = Assert.Throws<ArgumentException>(() => ArgumentCheck.IsTypeOf<int>(typeof(Guid)));
+            Assert.That(ex.Message, Is.StringContaining(typeof(int).FullName));
+            Assert.That(ex.Message, Is.StringContaining(typeof(Guid).FullName));
+        }
     }
 }

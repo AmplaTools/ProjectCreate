@@ -20,14 +20,14 @@ namespace AmplaTools.ProjectCreate.Framework
             Area area = new Area();
             Assert.That(area.GetDescendants(), Is.Empty);
 
-            WorkCentre wc1 = new WorkCentre() {name = "WC1"};
+            WorkCentre wc1 = new WorkCentre {name = "WC1"};
             area.WorkCentre.Add(wc1);
 
             Assert.That(area.GetDescendants(), Is.Not.Empty);
             Assert.That(area.GetDescendants().Count, Is.EqualTo(1));
             Assert.That(area.GetDescendants()[0], Is.EqualTo(wc1));
 
-            WorkCentre wc2 = new WorkCentre() { name = "WC2" };
+            WorkCentre wc2 = new WorkCentre { name = "WC2" };
             area.WorkCentre.Add(wc2);
 
             Assert.That(area.GetDescendants(), Is.Not.Empty);
@@ -49,7 +49,7 @@ namespace AmplaTools.ProjectCreate.Framework
             Assert.That(site.GetDescendants().Count, Is.EqualTo(1));
             Assert.That(site.GetDescendants()[0], Is.EqualTo(area1));
 
-            WorkCentre wc2 = new WorkCentre() { name = "WC2" };
+            WorkCentre wc2 = new WorkCentre { name = "WC2" };
             area1.WorkCentre.Add(wc2);
 
             Assert.That(site.GetDescendants(), Is.Not.Empty);

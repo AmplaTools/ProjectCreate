@@ -11,7 +11,8 @@
     <RootNamespace>AmplaTools.ProjectCreate.Editor</RootNamespace>
     <AssemblyName>AmplaTools.ProjectCreate.Editor</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -23,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -34,6 +36,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Autofac.3.0.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\packages\Autofac.3.0.2\lib\net40\Autofac.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,14 +55,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DependencyInjection\IApplication.cs" />
+    <Compile Include="DependencyInjection\WindowsApplicationModule.cs" />
+    <Compile Include="Events\EventAggregatorExtensions.cs" />
+    <Compile Include="WinFormsApplication.cs" />
+    <Compile Include="DependencyInjection\EventsModule.cs" />
+    <Compile Include="DependencyInjection\ModelModule.cs" />
+    <Compile Include="DependencyInjection\PresentationModule.cs" />
+    <Compile Include="DependencyInjection\ViewModule.cs" />
     <Compile Include="EditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EditorForm.Designer.cs">
       <DependentUpon>EditorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Events\EventAggregator.cs" />
+    <Compile Include="DependencyInjection\IoC.cs" />
+    <Compile Include="Messages\ExitMessage.cs" />
+    <Compile Include="Messages\HelpAboutMessage.cs" />
+    <Compile Include="Messages\LogMessage.cs" />
+    <Compile Include="Models\IModel.cs" />
+    <Compile Include="Events\IPublisher.cs" />
+    <Compile Include="Models\MenuCommand.cs" />
+    <Compile Include="Presenters\EditorMenuPresenter.cs" />
+    <Compile Include="Presenters\IMainPresenter.cs" />
+    <Compile Include="Presenters\IPresenter.cs" />
+    <Compile Include="Presenters\Presenter.cs" />
+    <Compile Include="Views\IView.cs" />
+    <Compile Include="Messages\AddItemMessage.cs" />
+    <Compile Include="Messages\IMessage.cs" />
+    <Compile Include="Messages\NewProjectMessage.cs" />
+    <Compile Include="Messages\ProjectChangedMessage.cs" />
+    <Compile Include="Messages\SaveProjectMessage.cs" />
+    <Compile Include="Models\EditorMenuModel.cs" />
+    <Compile Include="Models\ProjectModel.cs" />
+    <Compile Include="Presenters\EditorPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\IEditorMenuView.cs" />
+    <Compile Include="Views\IEditorView.cs" />
+    <EmbeddedResource Include="EditorForm.resx">
+      <DependentUpon>EditorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -64,6 +107,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -74,6 +119,13 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectCreate\AmplaTools.ProjectCreate.csproj">
+      <Project>{061EFA8E-C2C4-420E-B047-BA6B4DC5C536}</Project>
+      <Name>AmplaTools.ProjectCreate</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

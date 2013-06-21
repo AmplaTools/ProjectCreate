@@ -1,19 +1,29 @@
 ﻿using System;
 using System.Windows.Forms;
+using AmplaTools.ProjectCreate.Editor.DependencyInjection;
+using AmplaTools.ProjectCreate.Editor.Events;
+using AmplaTools.ProjectCreate.Editor.Models;
+using AmplaTools.ProjectCreate.Editor.Presenters;
+using AmplaTools.ProjectCreate.Editor.Views;
+using Autofac;
 
 namespace AmplaTools.ProjectCreate.Editor
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EditorForm());
+
+            using (IoC ioc = new IoC())
+            {
+                ioc.Container.Resolve<IApplication>().Start();
+            }
         }
     }
 }

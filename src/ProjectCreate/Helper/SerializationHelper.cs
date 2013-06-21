@@ -40,7 +40,7 @@ namespace AmplaTools.ProjectCreate.Helper
         {
             using (System.IO.StringReader stringReader = new System.IO.StringReader(xml))
             {
-                using (System.Xml.XmlReader xmlReader = System.Xml.XmlReader.Create(stringReader))
+                using (XmlReader xmlReader = XmlReader.Create(stringReader))
                 {
                     return (T) serializer.Deserialize(xmlReader);
                 }
@@ -50,7 +50,7 @@ namespace AmplaTools.ProjectCreate.Helper
 
     public static class SerializationHelper
     {
-        private static Dictionary<Type, Serializer> serializers = new Dictionary<Type, Serializer>();
+        private static readonly Dictionary<Type, Serializer> Serializers = new Dictionary<Type, Serializer>();
 
         /// <summary>
         ///     Serialise the object to a string using XmlSerialization
@@ -73,10 +73,10 @@ namespace AmplaTools.ProjectCreate.Helper
         private static Serializer GetSerializer<T>()
         {
             Serializer serializer;
-            if (!serializers.TryGetValue(typeof(T), out serializer))
+            if (!Serializers.TryGetValue(typeof(T), out serializer))
             {
                 serializer = new Serializer(typeof(T));
-                serializers[typeof(T)] = serializer;
+                Serializers[typeof(T)] = serializer;
             }
             return serializer;
         }

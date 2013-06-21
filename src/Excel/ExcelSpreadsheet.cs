@@ -33,14 +33,7 @@ namespace AmplaTools.ProjectCreate.Excel
             existingFile = fileInfo.Exists;
 
             this.filename = filename;
-            if (existingFile)
-            {
-                workbook = new XLWorkbook(filename);
-            }
-            else
-            {
-                workbook = new XLWorkbook();
-            }
+            workbook = existingFile ? new XLWorkbook(filename) : new XLWorkbook();
             disposed = false;
         }
 

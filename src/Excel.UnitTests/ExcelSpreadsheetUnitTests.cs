@@ -27,7 +27,7 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests
             {
                 Assert.That(spreadsheet.IsReadOnly, Is.False);
                 IWorksheetWriter worksheet = spreadsheet.WriteToWorksheet("New sheet");
-                worksheet.WriteRow(new List<string>(){"One", "Two", "Three"});
+                worksheet.WriteRow(new List<string>{"One", "Two", "Three"});
                 Assert.That(worksheet, Is.Not.Null);
             }
 
@@ -41,7 +41,7 @@ namespace AmplaTools.ProjectCreate.Excel.UnitTests
         [Test]
         public void ReadAndWrite()
         {
-            List<string> list = new List<string>() {"One", "Two", "Three"};
+            List<string> list = new List<string> {"One", "Two", "Three"};
             using (IExcelSpreadsheet spreadsheet = ExcelSpreadsheet.CreateNew(Filename))
             {
                 IWorksheetWriter worksheet = spreadsheet.WriteToWorksheet("New sheet");

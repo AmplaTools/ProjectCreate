@@ -6,7 +6,10 @@ namespace AmplaTools.ProjectCreate.Helper
     {
         public static void IsNotNull(object param)
         {
-            IsNotNull(param, null);
+            if (param == null)
+            {
+                throw new ArgumentNullException();
+            }
         }
 
         public static void IsNotNull(object param, string paramName)
@@ -19,7 +22,10 @@ namespace AmplaTools.ProjectCreate.Helper
 
         public static void IsNotEmpty(string param)
         {
-            IsNotEmpty(param, null);
+            if (param == string.Empty)
+            {
+                throw new ArgumentException(@"Argument can't be an empty string");
+            }
         }
 
         public static void IsNotEmpty(string param, string paramName)
@@ -30,5 +36,18 @@ namespace AmplaTools.ProjectCreate.Helper
             }
         }
 
+
+        public static void IsTypeOf<T>(Type type)
+        {
+            if (type == null)
+            {
+                throw new ArgumentNullException("type");
+            }
+            if (!typeof (T).IsAssignableFrom(type))
+            {
+                string message = string.Format("{0} is not a {1}", type.FullName, typeof(T).FullName);
+                throw new ArgumentException(message);
+            }
+        }
     }
 }

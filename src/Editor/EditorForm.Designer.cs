@@ -28,12 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.menuMain = new System.Windows.Forms.MenuStrip();
+            this.listBoxMessages = new System.Windows.Forms.ListBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusMessage = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // menuMain
+            // 
+            this.menuMain.Location = new System.Drawing.Point(0, 0);
+            this.menuMain.Name = "menuMain";
+            this.menuMain.Size = new System.Drawing.Size(284, 24);
+            this.menuMain.TabIndex = 0;
+            this.menuMain.Text = "menuStrip1";
+            // 
+            // listBoxMessages
+            // 
+            this.listBoxMessages.CausesValidation = false;
+            this.listBoxMessages.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.listBoxMessages.FormattingEnabled = true;
+            this.listBoxMessages.Location = new System.Drawing.Point(0, 119);
+            this.listBoxMessages.Name = "listBoxMessages";
+            this.listBoxMessages.Size = new System.Drawing.Size(284, 121);
+            this.listBoxMessages.TabIndex = 1;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusMessage});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 240);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(284, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusMessage
+            // 
+            this.toolStripStatusMessage.Name = "toolStripStatusMessage";
+            this.toolStripStatusMessage.Size = new System.Drawing.Size(79, 17);
+            this.toolStripStatusMessage.Text = "<Messages/>";
+            // 
+            // EditorForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.menuMain);
+            this.Controls.Add(this.listBoxMessages);
+            this.Controls.Add(this.statusStrip1);
+            this.MainMenuStrip = this.menuMain;
+            this.Name = "EditorForm";
+            this.Text = "Ampla Tools Editor";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.MenuStrip menuMain;
+        private System.Windows.Forms.ListBox listBoxMessages;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusMessage;
+
     }
 }
 

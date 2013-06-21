@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -44,6 +45,7 @@
     <Compile Include="Commands\MasterData\EquipmentHierarchyCommand.cs" />
     <Compile Include="Commands\ValidateCommand.cs" />
     <Compile Include="Commands\XsltCommand.cs" />
+    <Compile Include="Helper\ActivateHelper.cs" />
     <Compile Include="Helper\ArgumentCheck.cs" />
     <Compile Include="Helper\AssemblyResources.cs" />
     <Compile Include="Helper\B2MML.cs" />
