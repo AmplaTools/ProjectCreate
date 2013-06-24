@@ -8,8 +8,8 @@ namespace AmplaTools.ProjectCreate.Editor.DependencyInjection
     {
         protected override void Load(ContainerBuilder builder)
         {
-            ProjectModel projectModel = new ProjectModel();
-            builder.RegisterInstance(projectModel).ExternallyOwned();
+            EditorModel editorModel = new EditorModel();
+            builder.RegisterInstance(editorModel).ExternallyOwned();
             builder.RegisterType<EditorMenuModel>().InstancePerLifetimeScope();
             base.Load(builder);
         }

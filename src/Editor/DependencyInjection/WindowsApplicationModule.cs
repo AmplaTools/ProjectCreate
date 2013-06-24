@@ -7,7 +7,7 @@ namespace AmplaTools.ProjectCreate.Editor.DependencyInjection
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
-            builder.RegisterType<WinFormsApplication>().As<IApplication>();
+            builder.RegisterType<WinFormsApplication>().As<IApplication>().InstancePerLifetimeScope();
         }
     }
 }

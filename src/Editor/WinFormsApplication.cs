@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using AmplaTools.ProjectCreate.Editor.DependencyInjection;
 using AmplaTools.ProjectCreate.Editor.Events;
-using AmplaTools.ProjectCreate.Editor.Messages;
+using AmplaTools.ProjectCreate.Editor.Messages.Menu;
 using AmplaTools.ProjectCreate.Editor.Presenters;
 using AmplaTools.ProjectCreate.Helper;
 

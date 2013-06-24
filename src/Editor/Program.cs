@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using AmplaTools.ProjectCreate.Editor.DependencyInjection;
-using AmplaTools.ProjectCreate.Editor.Events;
-using AmplaTools.ProjectCreate.Editor.Models;
-using AmplaTools.ProjectCreate.Editor.Presenters;
-using AmplaTools.ProjectCreate.Editor.Views;
+
 using Autofac;
 
 namespace AmplaTools.ProjectCreate.Editor

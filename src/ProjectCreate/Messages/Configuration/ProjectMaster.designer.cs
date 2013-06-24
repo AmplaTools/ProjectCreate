@@ -15,7 +15,7 @@ namespace AmplaTools.ProjectCreate.Messages.Configuration
     using System.Collections.Generic;
 
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18034")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18047")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://github.com/AmplaTools/ProjectCreate")]
@@ -44,7 +44,7 @@ namespace AmplaTools.ProjectCreate.Messages.Configuration
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18034")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18047")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://github.com/AmplaTools/ProjectCreate")]
@@ -90,7 +90,7 @@ namespace AmplaTools.ProjectCreate.Messages.Configuration
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18034")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18047")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://github.com/AmplaTools/ProjectCreate")]
@@ -99,6 +99,8 @@ namespace AmplaTools.ProjectCreate.Messages.Configuration
     {
 
         private string hrefField;
+
+        private ProjectFileFormat formatField;
 
         [System.Xml.Serialization.XmlAttributeAttribute()]
         public string href
@@ -112,9 +114,35 @@ namespace AmplaTools.ProjectCreate.Messages.Configuration
                 this.hrefField = value;
             }
         }
+
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public ProjectFileFormat format
+        {
+            get
+            {
+                return this.formatField;
+            }
+            set
+            {
+                this.formatField = value;
+            }
+        }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18034")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18047")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://github.com/AmplaTools/ProjectCreate")]
+    public enum ProjectFileFormat
+    {
+
+        /// <remarks/>
+        Excel,
+
+        /// <remarks/>
+        Xml,
+    }
+
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18047")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://github.com/AmplaTools/ProjectCreate")]
@@ -153,7 +181,7 @@ namespace AmplaTools.ProjectCreate.Messages.Configuration
         }
     }
 
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18034")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18047")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://github.com/AmplaTools/ProjectCreate")]

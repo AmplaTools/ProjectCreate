@@ -22,8 +22,16 @@
   
   <xs:complexType name="ProjectHierarchy">
     <xs:attribute name="href" type="xs:string" use ="required"/>
+    <xs:attribute name="format" type="ProjectFileFormat" use="required"/>
   </xs:complexType>
 
+  <xs:simpleType name="ProjectFileFormat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Excel"/>
+      <xs:enumeration value="Xml"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
   <xs:complexType name="ListOfClasses">
     <xs:sequence>
       <xs:element name="Class" type="ClassDefinition" minOccurs="0" maxOccurs="unbounded"/>

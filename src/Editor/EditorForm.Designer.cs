@@ -32,6 +32,7 @@
             this.listBoxMessages = new System.Windows.Forms.ListBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusMessage = new System.Windows.Forms.ToolStripStatusLabel();
+            this.textBoxModel = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,11 +70,23 @@
             this.toolStripStatusMessage.Size = new System.Drawing.Size(79, 17);
             this.toolStripStatusMessage.Text = "<Messages/>";
             // 
+            // textBoxModel
+            // 
+            this.textBoxModel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxModel.Enabled = false;
+            this.textBoxModel.Location = new System.Drawing.Point(0, 24);
+            this.textBoxModel.Multiline = true;
+            this.textBoxModel.Name = "textBoxModel";
+            this.textBoxModel.Size = new System.Drawing.Size(284, 95);
+            this.textBoxModel.TabIndex = 3;
+            this.textBoxModel.Text = "<xml/>";
+            // 
             // EditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.textBoxModel);
             this.Controls.Add(this.menuMain);
             this.Controls.Add(this.listBoxMessages);
             this.Controls.Add(this.statusStrip1);
@@ -93,6 +106,7 @@
         private System.Windows.Forms.ListBox listBoxMessages;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusMessage;
+        private System.Windows.Forms.TextBox textBoxModel;
 
     }
 }

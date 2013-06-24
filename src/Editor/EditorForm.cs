@@ -7,6 +7,7 @@ using AmplaTools.ProjectCreate.Editor.Events;
 using AmplaTools.ProjectCreate.Editor.Messages;
 using AmplaTools.ProjectCreate.Editor.Models;
 using AmplaTools.ProjectCreate.Editor.Views;
+using AmplaTools.ProjectCreate.Helper;
 
 
 namespace AmplaTools.ProjectCreate.Editor
@@ -36,7 +37,6 @@ namespace AmplaTools.ProjectCreate.Editor
                 EventHandler handler = (o, e) => eventAggregator.SendMessage(action());
                 category.DropDownItems.Add(text, null, handler);
             }
-            
         }
 
         private ToolStripMenuItem GetCategoryMenu(string category)
@@ -62,6 +62,13 @@ namespace AmplaTools.ProjectCreate.Editor
         public void ShowMessage(string message)
         {
             toolStripStatusMessage.Text = message;
+        }
+
+        public void ShowModel(EditorModel model)
+        {
+            string xml = SerializationHelper.SerializeToString(model.EquipmentHierarchy);
+            textBoxModel.Text = xml;
+            Text = model.Filename;
         }
     }
 }

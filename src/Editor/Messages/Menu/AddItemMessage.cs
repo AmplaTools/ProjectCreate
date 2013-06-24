@@ -2,7 +2,7 @@
 using AmplaTools.ProjectCreate.Framework;
 using AmplaTools.ProjectCreate.Helper;
 
-namespace AmplaTools.ProjectCreate.Editor.Messages
+namespace AmplaTools.ProjectCreate.Editor.Messages.Menu
 {
     public class AddItemMessage : IMessage
     {

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <ProjectMaster xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://github.com/AmplaTools/ProjectCreate">
   <Equipment>
-    <Hierarchy href="Hierarchy.xml" />
+    <Hierarchy href="Hierarchy.xlsx" format="Excel" />
     <Classes />
   </Equipment>
 </ProjectMaster>

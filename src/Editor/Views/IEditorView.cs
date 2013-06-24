@@ -1,4 +1,4 @@
-﻿
+﻿using AmplaTools.ProjectCreate.Editor.Models;
 
 namespace AmplaTools.ProjectCreate.Editor.Views
 {
@@ -7,5 +7,6 @@ namespace AmplaTools.ProjectCreate.Editor.Views
         void Close();
         void ShowMessage(string message);
         void Show();
+        void ShowModel(EditorModel model);
     }
 }

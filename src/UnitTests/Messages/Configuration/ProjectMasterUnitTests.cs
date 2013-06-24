@@ -54,5 +54,16 @@ namespace AmplaTools.ProjectCreate.Messages.Configuration
             Assert.That(roundTrip, Is.EqualTo(xml)); 
         }
 
+        [Test]
+        public void NewProject()
+        {
+            ProjectMaster master = ProjectMaster.NewProject();
+            Assert.That(master, Is.Not.Null);
+            Assert.That(master.Equipment, Is.Not.Null);
+            Assert.That(master.Equipment.Hierarchy, Is.Not.Null);
+            Assert.That(master.Equipment.Hierarchy.format, Is.EqualTo(ProjectFileFormat.Excel));
+            Assert.That(master.Equipment.Hierarchy.href, Is.StringEnding(".xlsx"));
+        }
+
     }
 }

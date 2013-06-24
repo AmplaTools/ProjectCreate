@@ -58,6 +58,8 @@
     <Compile Include="DependencyInjection\IApplication.cs" />
     <Compile Include="DependencyInjection\WindowsApplicationModule.cs" />
     <Compile Include="Events\EventAggregatorExtensions.cs" />
+    <Compile Include="Messages\Project\LoadFromExcelMessage.cs" />
+    <Compile Include="Messages\Project\SaveProjectToExcelMessage.cs" />
     <Compile Include="WinFormsApplication.cs" />
     <Compile Include="DependencyInjection\EventsModule.cs" />
     <Compile Include="DependencyInjection\ModelModule.cs" />
@@ -71,8 +73,8 @@
     </Compile>
     <Compile Include="Events\EventAggregator.cs" />
     <Compile Include="DependencyInjection\IoC.cs" />
-    <Compile Include="Messages\ExitMessage.cs" />
-    <Compile Include="Messages\HelpAboutMessage.cs" />
+    <Compile Include="Messages\Menu\ExitMessage.cs" />
+    <Compile Include="Messages\Menu\HelpAboutMessage.cs" />
     <Compile Include="Messages\LogMessage.cs" />
     <Compile Include="Models\IModel.cs" />
     <Compile Include="Events\IPublisher.cs" />
@@ -82,13 +84,13 @@
     <Compile Include="Presenters\IPresenter.cs" />
     <Compile Include="Presenters\Presenter.cs" />
     <Compile Include="Views\IView.cs" />
-    <Compile Include="Messages\AddItemMessage.cs" />
+    <Compile Include="Messages\Menu\AddItemMessage.cs" />
     <Compile Include="Messages\IMessage.cs" />
-    <Compile Include="Messages\NewProjectMessage.cs" />
-    <Compile Include="Messages\ProjectChangedMessage.cs" />
-    <Compile Include="Messages\SaveProjectMessage.cs" />
+    <Compile Include="Messages\Project\NewProjectMessage.cs" />
+    <Compile Include="Messages\Project\ProjectChangedMessage.cs" />
+    <Compile Include="Messages\Project\SaveProjectMessage.cs" />
     <Compile Include="Models\EditorMenuModel.cs" />
-    <Compile Include="Models\ProjectModel.cs" />
+    <Compile Include="Models\EditorModel.cs" />
     <Compile Include="Presenters\EditorPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
