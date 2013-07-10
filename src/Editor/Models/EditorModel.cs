@@ -17,7 +17,7 @@ namespace AmplaTools.ProjectCreate.Editor.Models
             EditorModel model = new EditorModel
                 {
                     Filename = "Project.xml",
-                    EquipmentHierarchy = Hierarchy.Empty(),
+                    EquipmentHierarchy = new Hierarchy(),
                     Project = ProjectMaster.NewProject()
                 };
             return model;

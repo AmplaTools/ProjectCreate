@@ -55,11 +55,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\FileTabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\FileTabPage.Designer.cs">
+      <DependentUpon>FileTabPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="DependencyInjection\IApplication.cs" />
     <Compile Include="DependencyInjection\WindowsApplicationModule.cs" />
     <Compile Include="Events\EventAggregatorExtensions.cs" />
     <Compile Include="Messages\Project\LoadFromExcelMessage.cs" />
     <Compile Include="Messages\Project\SaveProjectToExcelMessage.cs" />
+    <Compile Include="Messages\Project\ViewFileMessage.cs" />
+    <Compile Include="Models\FileModel.cs" />
+    <Compile Include="Presenters\OpenFilePresenter.cs" />
+    <Compile Include="Views\IFileView.cs" />
+    <Compile Include="Views\IModelView.cs" />
+    <Compile Include="Views\IFileContentView.cs" />
     <Compile Include="WinFormsApplication.cs" />
     <Compile Include="DependencyInjection\EventsModule.cs" />
     <Compile Include="DependencyInjection\ModelModule.cs" />
@@ -96,6 +108,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\IEditorMenuView.cs" />
     <Compile Include="Views\IEditorView.cs" />
+    <EmbeddedResource Include="Controls\FileTabPage.resx">
+      <DependentUpon>FileTabPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditorForm.resx">
       <DependentUpon>EditorForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -32,7 +32,7 @@
             this.listBoxMessages = new System.Windows.Forms.ListBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusMessage = new System.Windows.Forms.ToolStripStatusLabel();
-            this.textBoxModel = new System.Windows.Forms.TextBox();
+            this.tabViews = new System.Windows.Forms.TabControl();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,7 +40,7 @@
             // 
             this.menuMain.Location = new System.Drawing.Point(0, 0);
             this.menuMain.Name = "menuMain";
-            this.menuMain.Size = new System.Drawing.Size(284, 24);
+            this.menuMain.Size = new System.Drawing.Size(459, 24);
             this.menuMain.TabIndex = 0;
             this.menuMain.Text = "menuStrip1";
             // 
@@ -49,18 +49,18 @@
             this.listBoxMessages.CausesValidation = false;
             this.listBoxMessages.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.listBoxMessages.FormattingEnabled = true;
-            this.listBoxMessages.Location = new System.Drawing.Point(0, 119);
+            this.listBoxMessages.Location = new System.Drawing.Point(0, 237);
             this.listBoxMessages.Name = "listBoxMessages";
-            this.listBoxMessages.Size = new System.Drawing.Size(284, 121);
+            this.listBoxMessages.Size = new System.Drawing.Size(459, 121);
             this.listBoxMessages.TabIndex = 1;
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusMessage});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 240);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 358);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(284, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(459, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -70,23 +70,21 @@
             this.toolStripStatusMessage.Size = new System.Drawing.Size(79, 17);
             this.toolStripStatusMessage.Text = "<Messages/>";
             // 
-            // textBoxModel
+            // tabViews
             // 
-            this.textBoxModel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxModel.Enabled = false;
-            this.textBoxModel.Location = new System.Drawing.Point(0, 24);
-            this.textBoxModel.Multiline = true;
-            this.textBoxModel.Name = "textBoxModel";
-            this.textBoxModel.Size = new System.Drawing.Size(284, 95);
-            this.textBoxModel.TabIndex = 3;
-            this.textBoxModel.Text = "<xml/>";
+            this.tabViews.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabViews.Location = new System.Drawing.Point(0, 24);
+            this.tabViews.Name = "tabViews";
+            this.tabViews.SelectedIndex = 0;
+            this.tabViews.Size = new System.Drawing.Size(459, 213);
+            this.tabViews.TabIndex = 4;
             // 
             // EditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.textBoxModel);
+            this.ClientSize = new System.Drawing.Size(459, 380);
+            this.Controls.Add(this.tabViews);
             this.Controls.Add(this.menuMain);
             this.Controls.Add(this.listBoxMessages);
             this.Controls.Add(this.statusStrip1);
@@ -106,7 +104,7 @@
         private System.Windows.Forms.ListBox listBoxMessages;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusMessage;
-        private System.Windows.Forms.TextBox textBoxModel;
+        private System.Windows.Forms.TabControl tabViews;
 
     }
 }

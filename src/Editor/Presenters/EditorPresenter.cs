@@ -6,9 +6,6 @@ using AmplaTools.ProjectCreate.Editor.Models;
 using AmplaTools.ProjectCreate.Editor.Views;
 using AmplaTools.ProjectCreate.Framework;
 using AmplaTools.ProjectCreate.Helper;
-using AmplaTools.ProjectCreate.Messages;
-using AmplaTools.ProjectCreate.Messages.Configuration;
-
 
 namespace AmplaTools.ProjectCreate.Editor.Presenters
 {
@@ -33,7 +30,6 @@ namespace AmplaTools.ProjectCreate.Editor.Presenters
             EditorModel model = EditorModel.CreateNewModel();
 
             Model = model;
-            Publish(new ProjectChangedMessage());
         }
 
         public void Publish(ProjectChangedMessage message)
@@ -61,6 +57,7 @@ namespace AmplaTools.ProjectCreate.Editor.Presenters
         public void Handle(ProjectChangedMessage message)
         {
             View.ShowModel(Model);
+            
         }
     }
 }

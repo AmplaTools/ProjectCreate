@@ -7,6 +7,7 @@ namespace AmplaTools.ProjectCreate.Editor.Views
         void Close();
         void ShowMessage(string message);
         void Show();
+        TView GetChildView<TView>(string viewName) where TView : class;
         void ShowModel(EditorModel model);
     }
 }

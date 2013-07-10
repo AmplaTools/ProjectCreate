@@ -6,7 +6,7 @@ using AmplaTools.ProjectCreate.Helper;
 namespace AmplaTools.ProjectCreate.Editor.Presenters
 {
     public class Presenter<TView, TModel> : IPresenter
-        where TView : class, IView
+        where TView : IView
     {
         public Presenter(TView view, TModel model, IEventAggregator eventAggregator)
         {
@@ -17,7 +17,7 @@ namespace AmplaTools.ProjectCreate.Editor.Presenters
             View = view;
             Model = model;
 
-            View.SetEventAggregator(eventAggregator);
+            View.SetEventPublisher(eventAggregator);
             eventAggregator.AddListener(this);
             EventAggregator = eventAggregator;
         }

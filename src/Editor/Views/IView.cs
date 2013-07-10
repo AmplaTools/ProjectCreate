@@ -5,8 +5,6 @@ namespace AmplaTools.ProjectCreate.Editor.Views
 {
     public interface IView
     {
-        void SetEventAggregator(IEventAggregator eventAggregator);
+        void SetEventPublisher(IEventPublisher eventPublisher);
     }
-
-
 }

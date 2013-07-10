@@ -27,5 +27,6 @@ namespace AmplaTools.ProjectCreate.Editor.Presenters
         {
             MessageBox.Show(@"AmplaTools.ProjectCreate", @"Help About");
         }
+
     }
 }
