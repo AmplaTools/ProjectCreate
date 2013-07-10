@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://github.com/AmplaTools/ProjectCreate"
+    elementFormDefault="qualified"
+    xmlns="http://github.com/AmplaTools/ProjectCreate"
+    xmlns:mstns="http://schemas.microsoft.com/2003/10/Serialization/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:attributeGroup name="equipment-attributes">
+    <xs:attribute name="name" type="xs:string" use ="required"/>
+    <xs:attribute name="id" type="xs:string" use="optional"/>
+    <xs:attribute name="b2mmlType" type="B2MMLType" use="optional"/>
+  </xs:attributeGroup>
+
+  <xs:element name="Project">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Items" type="ArrayOfEquipment" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="Equipment">
+    <xs:sequence>
+      <xs:element name="Items" type="ArrayOfEquipment" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="equipment-attributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="ArrayOfEquipment">
+    <xs:sequence>
+      <xs:element name="Item" type="Equipment" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="B2MMLType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Enterprise"/>
+      <xs:enumeration value="Site"/>
+      <xs:enumeration value="Area"/>
+      <xs:enumeration value="WorkCentre"/>
+      <xs:enumeration value="Other"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+</xs:schema>
+

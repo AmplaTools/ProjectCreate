@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<Project xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://github.com/AmplaTools/ProjectCreate">
+  <Items>
+    <Item name="Mining Company">
+      <Items>
+        <Item name="Remote Site">
+          <Items>
+            <Item name="Mining">
+              <Items />
+            </Item>
+            <Item name="Processing">
+              <Items>
+                <Item name="ROM">
+                  <Items />
+                </Item>
+              </Items>
+            </Item>
+          </Items>
+        </Item>
+      </Items>
+    </Item>
+  </Items>
+</Project>

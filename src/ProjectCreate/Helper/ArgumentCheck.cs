@@ -36,7 +36,6 @@ namespace AmplaTools.ProjectCreate.Helper
             }
         }
 
-
         public static void IsTypeOf<T>(Type type)
         {
             if (type == null)

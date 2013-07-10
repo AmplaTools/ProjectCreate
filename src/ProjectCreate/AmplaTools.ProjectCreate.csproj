@@ -56,6 +56,10 @@
     <Compile Include="Messages\.partial\Enterprise.partial.cs" />
     <Compile Include="Messages\.partial\Site.partial.cs" />
     <Compile Include="Messages\.partial\WorkCentre.partial.cs" />
+    <Compile Include="Models\EquipmentModel\.partial\Equipment.cs" />
+    <Compile Include="Models\EquipmentModel\.partial\EquipmentCollection.cs" />
+    <Compile Include="Models\EquipmentModel\.partial\Project.cs" />
+    <Compile Include="Models\EquipmentModel\Equipment.designer.cs" />
     <Compile Include="Messages\Hierarchy.designer.cs" />
     <Compile Include="Messages\.partial\Hierarchy.partial.cs" />
     <Compile Include="Messages\Configuration\.partial\ProjectHierarchy.partial.cs" />
@@ -103,6 +107,12 @@
   <ItemGroup>
     <Compile Include="Messages\.partial\Area.partial.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Models\EquipmentModel\Equipment.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
